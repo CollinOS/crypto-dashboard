@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@layer base {
+  body {
+    @apply bg-gray-800 text-gray-100 font-sans
+  }
+
+  main {
+    @apply ml-80 p-10
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-bold
+  }
+
+  h1 {
+    @apply text-4xl sm:text-5xl md:text-6xl
+  }
+
+  h2 {
+    @apply text-3xl sm:text-4xl
+  }
+
+  h3 {
+    @apply text-2xl sm:text-3xl
+  }
+
+  h4 {
+    @apply text-xl sm:text-2xl
+  }
+}
+
+@layer components {
+  .sidebar-container {
+    @apply fixed top-0 left-0 h-screen w-80 m-0 flex flex-col p-10
+  }
+
+  .sidebar-logo {
+    @apply m-1 p-3
+  }
+
+  .sidebar-element {
+    @apply m-1 p-3 rounded-lg hover:bg-gray-800
+  }
+
+  .sidebar-button-container {
+    @apply pb-10 fixed bottom-0 rounded-lg 
+  }
+  .sidebar-button {
+    @apply m-1 p-3 w-28 rounded-lg bg-orange-600 hover:bg-orange-500
+  }
+
+  .page-center {
+    @apply flex items-center justify-center flex-col relative overflow-hidden
+  }
+
+  .coin-row {
+    @apply hover:bg-gray-900
+  }
+}
