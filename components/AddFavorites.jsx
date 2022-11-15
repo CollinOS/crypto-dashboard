@@ -10,7 +10,9 @@ export default function AddFavorites({ data }) {
     try {
       const updates = {
         userId: user.id,
-        coin: data.id
+        coin: data.id,
+        name: data.name,
+        image: data.image,
       }
 
       let { error } = await supabase.from('favorites').upsert(updates)

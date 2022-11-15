@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Image from 'next/image'
 import { createClient } from '@supabase/supabase-js'
 
 export async function getStaticProps() {
@@ -19,11 +20,20 @@ export default function FavoriteCoins({favorites}) {
   return (
     <main>
       <div className='page-center'>
-        {favorites.map((favorite) => (
-          <div key={favorite.id} favorite={favorite}>
-            <p>{favorite.coin}</p>
-          </div>
-        ))}
+        <div className='flex items-center justify-center flex-col py-12'>
+          <h2 className='pb-2 tracking-wide'>Portfolio</h2>
+          <p className='text-secondary text-sm'>Here are the coins you have added to your portfolio. Click on a coin to manage trades!</p>
+        </div>
+        <div className='flex flex-row flex-wrap'>
+          {favorites.map((favorite) => (
+            <div key={favorite.id} favorite={favorite} className='bg-gradient-to-br from-purple via-dark-hov to-purple rounded-lg p-[1px] mx-4'>
+              <div className='bg-dark rounded-lg flex items-center justify-center p-4'>
+                <Image src={favorite.image} width={50} height={50} alt="coin logo" />
+                <h3 className='ml-2'>{favorite.name}</h3>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </main>
   )
