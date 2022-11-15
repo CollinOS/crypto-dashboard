@@ -1,19 +1,16 @@
-import { useState, useEffect } from 'react'
+//import { useState, useEffect } from 'react'
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
 import { CiStar } from 'react-icons/ci'
 
-//test
-// add params or something?   ({ params })
-export default function AddFavorites() {
+export default function AddFavorites({ data }) {
   const supabase = useSupabaseClient()
   const user = useUser()
-  const [coin, setCoin] = useState(null)
 
-  async function updateFavorites({ coin }) {
+  async function updateFavorites() {
     try {
       const updates = {
         userId: user.id,
-        coin,
+        coin: data.id
       }
 
       let { error } = await supabase.from('favorites').upsert(updates)
@@ -27,22 +24,7 @@ export default function AddFavorites() {
 
   return (
     <div>
-      <div>
-        <input
-          id="coin"
-          type="text"
-          value={coin || ''}
-          onChange={(e) => setCoin(e.target.value)}
-          className='w-12'
-        />
-      </div>
-      <div>
-        <CiStar
-          onClick={() => updateFavorites({ coin })}
-        >
-          Update
-        </CiStar>
-      </div>
+        <CiStar onClick={() => updateFavorites()} />
     </div>
   )
 }

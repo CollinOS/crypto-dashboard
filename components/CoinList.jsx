@@ -38,7 +38,7 @@ function CoinList({ coins }) {
               : coin.name.toUpperCase().includes(search)))
             .map((coin) => (
               <tr key={coin.market_cap_rank} className='rounded-lg duration-100 hover:bg-dark-hov'>
-                <td><AddFavorites coin={coin} /></td>
+                <td><AddFavorites data={coin}/></td>
                 <td className='border-b border-dark-border px-4 py-4 text-primary font-medium w-20'>{coin.market_cap_rank}</td>
                 <td className='border-b border-dark-border px-4 py-4'>
                   <Link href={`/coins/${coin.id}`}>
