@@ -2,11 +2,40 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import AddFavorites from './AddFavorites'
+import AddFavorites from './AddFavorites';
+// import { createClient } from '@supabase/supabase-js';
 
+// export async function getStaticProps() {
+//   const supabaseAdmin = createClient(
+//     process.env.NEXT_PUBLIC_SUPABASE_URL || '',
+//     process.env.SUPABASE_SERVICE_ROLE_KEY || ''
+//   )
 
+//   const { data } = await supabaseAdmin.from('favorites').select('*').order('id')
+//   return {
+//     props: {
+//       favorites: data,
+//     },
+//   }
+// }
 
-function CoinList({ coins }) {
+// export default function FavoriteCoins({favorites}) {
+//   return (
+//     <main>
+//       <div className='page-center'>
+//         {favorites.map((favorite) => (
+//           <div key={favorite.id} favorite={favorite}>
+//             <p>{favorite.coin}</p>
+//           </div>
+//         ))}
+//       </div>
+//     </main>
+//   )
+// }
+
+// TO MAP THROUGH FAVORITES ^^^
+
+function FavoritesList({ coins }) {
   const [search, setSearch] = useState('');
 
   return (
@@ -38,7 +67,7 @@ function CoinList({ coins }) {
               : coin.name.toUpperCase().includes(search)))
             .map((coin) => (
               <tr key={coin.market_cap_rank} className='rounded-lg duration-100 hover:bg-dark-hov'>
-                <td><AddFavorites coin={coin} /></td>
+                <td><AddFavorites /></td>
                 <td className='border-b border-dark-border px-4 py-4 text-primary font-medium w-20'>{coin.market_cap_rank}</td>
                 <td className='border-b border-dark-border px-4 py-4'>
                   <Link href={`/coins/${coin.id}`}>
@@ -65,4 +94,4 @@ function CoinList({ coins }) {
   );
 }
 
-export default CoinList;
+export default FavoritesList;

@@ -53,6 +53,17 @@ STAR ORANGE: #FFA500
   h4 {
     @apply text-xl sm:text-2xl
   }
+  button {
+    @apply border-none m-1 p-3 w-96 rounded-lg bg-purple hover:bg-purple-hov active:bg-logo-purple duration-100 !important
+  }
+  
+  input {
+    @apply border border-dark-border bg-dark p-2 rounded-lg text-secondary text-sm duration-100 active:border-purple focus:outline-none !important
+  }
+
+  label {
+    @apply ml-1 text-secondary
+  }
 }
 
 @layer components {
@@ -72,7 +83,7 @@ STAR ORANGE: #FFA500
     @apply pb-10 fixed bottom-0 rounded-lg 
   }
   .sidebar-button {
-    @apply m-1 p-3 w-56 rounded-lg bg-purple hover:bg-purple-hov active:bg-logo-purple duration-100
+    @apply m-1 p-3 w-56 rounded-lg bg-purple hover:bg-purple-hov active:bg-logo-purple duration-100 !important
   }
 
   .page-center {

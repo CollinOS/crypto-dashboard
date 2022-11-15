@@ -1,25 +1,37 @@
 import React from 'react'
 import Link from 'next/link'
 import ActiveLink from './ActiveLink'
+import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
+import { FaCoins, FaStar, FaImage } from 'react-icons/fa'
 
 const Sidebar = () => {
+  const session = useSession()
+
   return (
     <div className='sidebar-container border-r border-dark-border'>
       <h2 className='sidebar-logo'>Coin<span className='text-purple'>Track</span></h2>
 
       <ActiveLink href={`/coins`}>
-        <h5>Coins</h5>
+        <h5 className='flex items-center'><span className='text-secondary'><FaCoins className='mr-3'/></span>Coins</h5>
       </ActiveLink>
       <div className='p-1'/>
       <ActiveLink href={`/portfolio`}>
-        <h5>Portfolio</h5>
+      <h5 className='flex items-center'><span className='text-secondary'><FaStar className='mr-3'/></span>Portfolio</h5>
       </ActiveLink>
       <div className='p-1'/>
-      <h5 className='sidebar-element'>NFT</h5>
+      <ActiveLink href={`/nft`}>
+      <h5 className='flex items-center'><span className='text-secondary'><FaImage className='mr-3'/></span>NFT</h5>
+      </ActiveLink>
 
       <div className='sidebar-button-container'>
-        <button className='sidebar-button'>Log In</button>
-        <p className='text-center text-secondary text-sm pt-2'>Sign Up</p>
+        <Link href='/account'>
+          {!session ? (
+            <button className='sidebar-button'>Sign In</button>
+          ) : (
+            <button className='sidebar-button'>Account</button>
+          )}
+        {/* <p className='text-center text-secondary text-sm pt-2'>Sign Up</p> */}
+        </Link>
       </div>
     </div>
   )
