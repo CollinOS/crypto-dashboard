@@ -1,6 +1,6 @@
 //import { useState, useEffect } from 'react'
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
-import { CiStar } from 'react-icons/ci'
+import { AiOutlineStar, AiFillStar } from 'react-icons/ai'
 
 export default function AddFavorites({ data }) {
   const supabase = useSupabaseClient()
@@ -24,7 +24,12 @@ export default function AddFavorites({ data }) {
 
   return (
     <div>
-        <CiStar onClick={() => updateFavorites()} />
+      {/* {coin != data.id ? (
+        <AiOutlineStar onClick={() => updateFavorites()} className='text-secondary text-lg hover:text-primary active:text-purple duration-100' />
+      ) : (
+        <AiFillStar onClick={() => updateFavorites()} className='text-purple text-lg' />
+      )} */}
+      <AiOutlineStar onClick={() => updateFavorites()} className='text-secondary text-lg hover:text-primary active:text-purple duration-100' />
     </div>
   )
 }

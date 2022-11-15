@@ -22,7 +22,8 @@ function CoinList({ coins }) {
       <table className='table-fixed w-3/4 text-sm'>
         <thead>
           <tr>
-            <td className='border-b border-dark-border font-bold px-4 py-4 text-primary w-16'>#</td>
+            <td className='border-b border-dark-border font-bold px-4 py-4 text-primary w-4'></td>
+            <td className='border-b border-dark-border font-bold px-4 py-4 text-primary w-12'>#</td>
             <td className='border-b border-dark-border font-bold px-4 py-4 text-primary'>Coin</td>
             <td className='border-b border-dark-border font-bold px-4 py-4 text-primary w-32 text-right'>Price (USD)</td>
             <td className='border-b border-dark-border font-bold px-4 py-4 text-primary w-24 text-right'>24h</td>
@@ -38,7 +39,7 @@ function CoinList({ coins }) {
               : coin.name.toUpperCase().includes(search)))
             .map((coin) => (
               <tr key={coin.market_cap_rank} className='rounded-lg duration-100 hover:bg-dark-hov'>
-                <td><AddFavorites data={coin}/></td>
+                <td className='border-b border-dark-border px-4 py-4 text-primary font-medium w-8'><AddFavorites data={coin} /></td>
                 <td className='border-b border-dark-border px-4 py-4 text-primary font-medium w-20'>{coin.market_cap_rank}</td>
                 <td className='border-b border-dark-border px-4 py-4'>
                   <Link href={`/coins/${coin.id}`}>
