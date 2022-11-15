@@ -45,7 +45,7 @@ function CoinList({ coins }) {
                   <Link href={`/coins/${coin.id}`}>
                     <div className='flex'>
                       <div className='flex-col'>
-                        <Image src={coin.image} width={20} height={20} alt="coin logo" />
+                        <Image src={coin.image} width={20} height={20} alt="coin logo" className='rounded-full' />
                       </div>
                       <div className='mx-3 flex-auto'>
                         <span className='mr-3 text-primary font-bold'>{coin.name}</span>
