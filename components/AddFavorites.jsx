@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
 import { CiStar } from 'react-icons/ci'
 
-
+//test
 // add params or something?   ({ params })
 export default function AddFavorites() {
   const supabase = useSupabaseClient()
