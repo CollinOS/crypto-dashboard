@@ -6,19 +6,15 @@ export default function AddFavorites({ data }) {
   const supabase = useSupabaseClient();
   const user = useUser();
   const [ favorites, setFavorites] = useState([]);
+  //const [isLoading, setLoading] = useState(false)
 
   useEffect(() => {
-    if (supabase){
-      getFavorites();
-    }
-  }, [supabase])
-
+    getFavorites();
+  }, [])
+  
   async function getFavorites() {
     try {
-      const { data, error } = await supabase
-        .from("favorites")
-        .select("*")
-        .eq('userId', user.id)
+      const { data, error } = await supabase.from("favorites").select("*").eq('userId', user.id)
       if (error) throw error;
       if (data != null) {
         setFavorites(data);
@@ -57,8 +53,7 @@ export default function AddFavorites({ data }) {
 
   return (
     <div>
-      {
-        favorites.find(favorite => favorite.coin === data.id) !== undefined
+      {favorites.find(favorite => favorite.coin === data.id) !== undefined
         ? <AiFillStar onClick={() => {deleteFavorites();getFavorites()}} className='text-orange text-lg hover:text-secondary duration-100' />
         : <AiOutlineStar onClick={() => {addFavorites();getFavorites()}} className='text-secondary text-lg hover:text-primary active:text-orange duration-100' />
       }

@@ -21,23 +21,3 @@ export default function Home() {
     </div>
   )
 }
-// import { Auth, ThemeSupa } from '@supabase/auth-ui-react'
-// import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
-// import Account from '../components/accounts'
-
-// const Home = () => {
-//   const session = useSession()
-//   const supabase = useSupabaseClient()
-
-//   return (
-//     <div className="page-center">
-//       {!session ? (
-//         <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} theme="dark" />
-//       ) : (
-//         <Account session={session}/>
-//       )}
-//     </div>
-//   )
-// }
-
-// export default Home
