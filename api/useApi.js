@@ -10,7 +10,6 @@ const useApi = (url) => {
     axios.get(url)
       .then((res) => {
         setCoins(res.data);
-        console.log(res.data)
       })
       .catch((err) => {
         setError(err.message);
