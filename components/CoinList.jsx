@@ -4,8 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import AddFavorites from './AddFavorites'
 
-
-
 function CoinList({ coins }) {
   const [search, setSearch] = useState('');
 
@@ -39,7 +37,9 @@ function CoinList({ coins }) {
               : coin.name.toUpperCase().includes(search)))
             .map((coin) => (
               <tr key={coin.market_cap_rank} className='rounded-lg duration-100 hover:bg-dark-hov'>
-                <td className='border-b border-dark-border px-4 py-4 text-primary font-medium w-8'><AddFavorites data={coin} /></td>
+                <td className='border-b border-dark-border px-4 py-4 text-primary font-medium w-8'>
+                  <AddFavorites data={coin} />
+                </td>
                 <td className='border-b border-dark-border px-4 py-4 text-primary font-medium w-20'>{coin.market_cap_rank}</td>
                 <td className='border-b border-dark-border px-4 py-4'>
                   <Link href={`/coins/${coin.id}`}>
