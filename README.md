@@ -2,6 +2,7 @@
 
 Next steps are:
 - update local storage on adding and deleting favorites
+- at some point favorites from other user were deleted? Once figured out do some testing on that
 - Have a card appear on click of each coin to add trades for that coin and store in trades table
 - Break up portfolio page into seperate components?
 
