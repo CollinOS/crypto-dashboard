@@ -10,6 +10,7 @@ function CoinList({ coins }) {
   return (
     <div className='page-center'>
       <div className='flex flex-row justify-between w-3/4'>
+        {/*    HEADER AND SEARCH    */}
         <h4 className='py-2 my-12'>Cryptocurrency Prices by Market Cap</h4>
         <input className='border border-dark-border bg-dark p-2 w-60 rounded-lg my-14 text-secondary text-sm duration-100 active:border-purple focus:outline-none '
           onChange={(e) => setSearch(e.target.value.toUpperCase())}
@@ -18,7 +19,7 @@ function CoinList({ coins }) {
       </div>
 
       <table className='table-fixed w-3/4 text-sm'>
-        <thead>
+        <thead> {/*    COLUMN LABELS    */}
           <tr>
             <td className='border-b border-dark-border font-bold px-4 py-4 text-primary w-4'></td>
             <td className='border-b border-dark-border font-bold px-4 py-4 text-primary w-12'>#</td>
@@ -29,11 +30,10 @@ function CoinList({ coins }) {
             <td className='border-b border-dark-border font-bold px-4 py-4 text-primary w-48 text-right'>Market Cap</td>
           </tr>
         </thead>
-        <tbody>
+        <tbody> {/*    COIN ROWS   */}
           {coins
             .filter((coin) => (search.toUpperCase() === ''
               ? coin
-              // need to make sure you are filtering for a string
               : coin.name.toUpperCase().includes(search)))
             .map((coin) => (
               <tr key={coin.market_cap_rank} className='rounded-lg duration-100 hover:bg-dark-hov'>

@@ -2,19 +2,19 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
 
-export default function FavoriteCoins() { //{ favorites }
+export default function FavoriteCoins() {
   const supabase = useSupabaseClient()
   const user = useUser()
   const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  // GETS FAVORITES FROM DB UNLESS THEY ALREADY EXIST IN LOCAL STORAGE
   useEffect(() => {
     async function getFavorites() {
       try {
         if ('MY_FAVORITE_COINS' in localStorage) {
           const store = window.localStorage.getItem('MY_FAVORITE_COINS')
           setFavorites(JSON.parse(store))
-          console.log('setFavorites with localStorage')
         }
         else {
           setLoading(true);
@@ -26,13 +26,10 @@ export default function FavoriteCoins() { //{ favorites }
           if (error) throw error;
           if (data != null) {
             setFavorites(data);
-            console.log('setFavorites with supabase')
             window.localStorage.setItem('MY_FAVORITE_COINS', JSON.stringify(data))
-            console.log('set localStorage')
           }
         }
-      } catch (error) {
-        // alert(error.message + ' getFavorites');     
+      } catch (error) {    
       } finally {
         setLoading(false);
       }
@@ -40,6 +37,7 @@ export default function FavoriteCoins() { //{ favorites }
     if (user) getFavorites()
   }, [user, supabase]);
 
+  // LOADING
   if(loading){return(<p>Loading...</p>)}
 
   return (
@@ -50,7 +48,7 @@ export default function FavoriteCoins() { //{ favorites }
           <p className='text-secondary text-sm'>Here are the coins you have added to your portfolio. Click on a coin to manage trades!</p>
         </div>
         {!user ? (
-          <p>Please log in</p>
+          <p>Please sign in to view your portfolio</p>
         ) : (
         <div className='flex flex-row flex-wrap w-4/5 items-center justify-center'>
           {favorites

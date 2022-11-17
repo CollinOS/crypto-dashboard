@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import ActiveLink from './ActiveLink'
-import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
+import { useSession } from '@supabase/auth-helpers-react'
 import { FaCoins, FaStar, FaImage } from 'react-icons/fa'
 
 const Sidebar = () => {
