@@ -62,7 +62,9 @@ export default function AddFavorites({ data }) {
       const deleteData = { data }
       //let { error } = await supabase.from('favorites').delete(deleteData).eq('coin', data.id, 'userId', user.id)
       const store = JSON.parse(window.localStorage.getItem('MY_FAVORITE_COINS'))
-      if (store.id = data.id) console.log(store.id)//window.localStorage.removeItem('MY_FAVORITE_COINS', store.indexOf(data.id))
+      const index = store.findIndex(store => store.coin === data.id);
+      console.log(index)
+      //window.localStorage.removeItem('MY_FAVORITE_COINS', JSON.stringify(index))
       if (error) throw error
     } catch (error) {
       alert('Error deleting that favorite.')
