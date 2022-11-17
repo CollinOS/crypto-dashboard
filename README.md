@@ -1,15 +1,12 @@
 ## Where my head is at (update at end of each session?)
 
 Next steps are:
-- It turns out that supabase just upgraded major versions recent so stuff I have used is a mix of v1 & v2. Need all v2
-- Issues across the board with getting data from supabase
-  - if I go straight to portfolio page before loading any other pages, error occors
-  - if I refresh any pages with favorites, error occurs
-  - if I go to coins page or update it, favorites load slow, and then if I return to coins page after visiting another page it loads favorites much slower
-- Work on getFavorite throwing an error on refresh. Also favorites don't populate if I navigate to an coin/id page and return to coins page
+- update local storage on adding and deleting favorites
 - Have a card appear on click of each coin to add trades for that coin and store in trades table
 - Break up portfolio page into seperate components?
-- Only display coins in portfolio if user.id = userId
+
+For the slow loading of favorites?
+https://www.youtube.com/watch?v=MeRk-5U9XVc&list=PL4cUxeGkcC9hUb6sHthUEwG7r9VDPBMKO&index=9&ab_channel=TheNetNinja
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
