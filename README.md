@@ -1,6 +1,7 @@
 ## Where my head is at (update at end of each session?)
 
 Next steps are:
+- It turns out that supabase just upgraded major versions recent so stuff I have used is a mix of v1 & v2. Need all v2
 - Issues across the board with getting data from supabase
   - if I go straight to portfolio page before loading any other pages, error occors
   - if I refresh any pages with favorites, error occurs
