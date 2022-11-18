@@ -70,6 +70,7 @@ export default function AddFavorites({ data }) {
       store.splice(index, 1);
       window.localStorage.setItem('MY_FAVORITE_COINS', JSON.stringify(store))
       setFavorites(store);
+      
       if (error) throw error
     } catch (error) {
     }

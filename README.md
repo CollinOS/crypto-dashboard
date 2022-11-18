@@ -1,12 +1,12 @@
 ## Where my head is at (update at end of each session?)
 
 Next steps are:
-- add functionality for not adding a coin more than once
+- implement sorting functionality
 - Have a card appear on click of each coin to add trades for that coin and store in trades table
 - Break up portfolio page into seperate components?
 - neeed favorites on coins page to load the same way they do on portfolio page
 
-For the slow loading of favorites?
+For the slow loading of favorites? (might not need)
 https://www.youtube.com/watch?v=MeRk-5U9XVc&list=PL4cUxeGkcC9hUb6sHthUEwG7r9VDPBMKO&index=9&ab_channel=TheNetNinja
 
 

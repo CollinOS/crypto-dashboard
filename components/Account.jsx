@@ -6,8 +6,6 @@ export default function Account({ session }) {
   const user = useUser()
   const [loading, setLoading] = useState(true)
   const [username, setUsername] = useState(null)
-  const [website, setWebsite] = useState(null)
-  const [avatar_url, setAvatarUrl] = useState(null)
 
   useEffect(() => {
     getProfile()
@@ -19,7 +17,7 @@ export default function Account({ session }) {
 
       let { data, error, status } = await supabase
         .from('profiles')
-        .select(`username, website, avatar_url`)
+        .select(`username`)
         .eq('id', user.id)
         .single()
 
@@ -29,8 +27,6 @@ export default function Account({ session }) {
 
       if (data) {
         setUsername(data.username)
-        setWebsite(data.website)
-        setAvatarUrl(data.avatar_url)
       }
     } catch (error) {
       alert('Error loading user data!')
@@ -40,15 +36,13 @@ export default function Account({ session }) {
     }
   }
 
-  async function updateProfile({ username, website, avatar_url }) {
+  async function updateProfile({ username }) {
     try {
       setLoading(true)
 
       const updates = {
         id: user.id,
         username,
-        website,
-        avatar_url,
         updated_at: new Date().toISOString(),
       }
 
@@ -78,20 +72,11 @@ export default function Account({ session }) {
           onChange={(e) => setUsername(e.target.value)}
         />
       </div>
-      <div>
-        <label htmlFor="website">Website</label>
-        <input
-          id="website"
-          type="website"
-          value={website || ''}
-          onChange={(e) => setWebsite(e.target.value)}
-        />
-      </div>
 
       <div>
         <button
           className="button primary block"
-          onClick={() => updateProfile({ username, website, avatar_url })}
+          onClick={() => updateProfile({ username })}
           disabled={loading}
         >
           {loading ? 'Loading ...' : 'Update'}
