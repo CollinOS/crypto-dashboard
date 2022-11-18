@@ -5,6 +5,7 @@ Next steps are:
 - at some point favorites from other user were deleted? Once figured out do some testing on that
 - Have a card appear on click of each coin to add trades for that coin and store in trades table
 - Break up portfolio page into seperate components?
+- neeed favorites on coins page to load the same way they do on portfolio page
 
 For the slow loading of favorites?
 https://www.youtube.com/watch?v=MeRk-5U9XVc&list=PL4cUxeGkcC9hUb6sHthUEwG7r9VDPBMKO&index=9&ab_channel=TheNetNinja
