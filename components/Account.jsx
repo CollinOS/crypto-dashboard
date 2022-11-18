@@ -98,7 +98,7 @@ export default function Account({ session }) {
         </button>
       </div>
 
-      <div>
+      <div onClick={() => window.localStorage.clear()}>
         <button className="button block" onClick={() => supabase.auth.signOut()}>
           Sign Out
         </button>

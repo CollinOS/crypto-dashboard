@@ -15,7 +15,6 @@ export default function AddFavorites({ data }) {
         if ('MY_FAVORITE_COINS' in window.localStorage) {
           const store = window.localStorage.getItem('MY_FAVORITE_COINS')
           setFavorites(JSON.parse(store))
-          console.log('setFavorites with localStorage')
         }
         else {
           setLoading(true);
@@ -27,7 +26,6 @@ export default function AddFavorites({ data }) {
           if (error) throw error;
           if (data != null) {
             setFavorites(data);
-            console.log('setFavorites with supabase')
             window.localStorage.setItem('MY_FAVORITE_COINS', JSON.stringify(data))
           }
         }
@@ -55,6 +53,7 @@ export default function AddFavorites({ data }) {
       store.push(insertData);
       window.localStorage.setItem('MY_FAVORITE_COINS', JSON.stringify(store))
       setFavorites(store);
+
       if (error) throw error
     } catch (error) {
     }
@@ -64,7 +63,7 @@ export default function AddFavorites({ data }) {
   async function deleteFavorites() {
     try {
       const deleteData = { data }
-      let { error } = await supabase.from('favorites').delete(deleteData).eq('coin', data.id, 'userId', user.id)
+      let { error } = await supabase.from('favorites').delete(deleteData).eq('coin', data.id).eq('userId', user.id)
       // LOCAL STORAGE
       const store = JSON.parse(window.localStorage.getItem('MY_FAVORITE_COINS'))
       const index = store.findIndex(store => store.coin === data.id);

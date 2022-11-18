@@ -12,7 +12,7 @@ function LoadingRow() {
           </div>
           <div className='mx-3 flex-auto'>
             <span className='mr-3 text-secondary font-bold'>CryptoTrack</span>
-            <span className='text-secondary text-sm'>{coin.symbol.toUpperCase()}</span>
+            <span className='text-secondary text-sm'>XYZ</span>
           </div>
         </div>
       </td>

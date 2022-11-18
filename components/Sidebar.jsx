@@ -26,7 +26,7 @@ const Sidebar = () => {
       <div className='sidebar-button-container'>
         <Link href='/account'>
           {!session ? (
-            <button className='sidebar-button'>Sign In</button>
+            <button className='sidebar-button' onClick={() => window.localStorage.clear()}>Sign In</button>
           ) : (
             <button className='sidebar-button'>Account</button>
           )}
