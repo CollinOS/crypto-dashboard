@@ -6,6 +6,7 @@ import AddFavorites from './AddFavorites'
 
 function CoinList({ coins }) {
   const [search, setSearch] = useState('');
+  const [sort, setSort] = useState('desc')
 
   return (
     <div className='page-center'>
@@ -32,6 +33,10 @@ function CoinList({ coins }) {
         </thead>
         <tbody> {/*    COIN ROWS   */}
           {coins
+            .sort((a, b) => {
+              if (sort === 'asc') {(a.market_cap_rank > b.market_cap_rank ? 1 : -1)}
+              else {(a.market_cap_rank < b.market_cap_rank ? 1 : -1)}
+            })
             .filter((coin) => (search.toUpperCase() === ''
               ? coin
               : coin.name.toUpperCase().includes(search)))
