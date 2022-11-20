@@ -1,12 +1,20 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import AddFavorites from './AddFavorites'
 
 function CoinList({ coins }) {
   const [search, setSearch] = useState('');
-  const [sort, setSort] = useState('desc')
+  const [sort, setSort] = useState('asc');
+
+  useEffect(() => {
+    if (sort === 'asc') {
+      coins.sort((a, b) => (a.market_cap_rank < b.market_cap_rank ? 1 : -1 ))
+    } else {
+      coins.sort((a, b) => (a.market_cap_rank > b.market_cap_rank ? 1 : -1 ))
+    }
+  }, [coins, sort])
 
   return (
     <div className='page-center'>
@@ -23,7 +31,10 @@ function CoinList({ coins }) {
         <thead> {/*    COLUMN LABELS    */}
           <tr>
             <td className='border-b border-dark-border font-bold px-4 py-4 text-primary w-4'></td>
-            <td className='border-b border-dark-border font-bold px-4 py-4 text-primary w-12'>#</td>
+            { sort === 'asc'
+              ? <td className='border-b border-dark-border font-bold px-4 py-4 text-primary w-12 cursor-pointer' onClick={() => setSort('desc')}>#</td>
+              : <td className='border-b border-dark-border font-bold px-4 py-4 text-primary w-12 cursor-pointer' onClick={() => setSort('asc')}>#</td>
+            }
             <td className='border-b border-dark-border font-bold px-4 py-4 text-primary'>Coin</td>
             <td className='border-b border-dark-border font-bold px-4 py-4 text-primary w-32 text-right'>Price (USD)</td>
             <td className='border-b border-dark-border font-bold px-4 py-4 text-primary w-24 text-right'>24h</td>
@@ -33,10 +44,6 @@ function CoinList({ coins }) {
         </thead>
         <tbody> {/*    COIN ROWS   */}
           {coins
-            .sort((a, b) => {
-              if (sort === 'asc') {(a.market_cap_rank > b.market_cap_rank ? 1 : -1)}
-              else {(a.market_cap_rank < b.market_cap_rank ? 1 : -1)}
-            })
             .filter((coin) => (search.toUpperCase() === ''
               ? coin
               : coin.name.toUpperCase().includes(search)))
