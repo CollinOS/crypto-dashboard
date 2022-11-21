@@ -1,8 +1,8 @@
-/* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import AddFavorites from './AddFavorites'
+// import { IoMdArrowDropup, IoMdArrowDropdown } from 'react-icons/io'
 
 function CoinList({ coins }) {
   const [search, setSearch] = useState('');
