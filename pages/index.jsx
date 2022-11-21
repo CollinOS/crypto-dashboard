@@ -1,4 +1,5 @@
-import Head from 'next/head'
+import React from 'react';
+import Head from 'next/head';
 
 export default function Home() {
   return (
@@ -10,14 +11,13 @@ export default function Home() {
       </Head>
 
       <main>
-        <div className='page-center'>
+        <div className="page-center">
           <h1>Hello World!</h1>
           <p>This is the Inter font</p>
         </div>
       </main>
 
-      <footer>
-      </footer>
+      <footer />
     </div>
-  )
+  );
 }

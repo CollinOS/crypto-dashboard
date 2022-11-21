@@ -1,14 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-const Index = () => {
-
+function Index() {
   return (
     <main>
       <div>
         <h1>NFT Page</h1>
       </div>
     </main>
-  )
+  );
 }
 
-export default Index
+export default Index;

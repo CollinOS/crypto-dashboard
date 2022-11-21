@@ -1,15 +1,14 @@
-import { useRouter } from "next/router";
-import Link from "next/link";
-import React from 'react'
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import React from 'react';
 
-const ActiveLink = ({ href, children }) => {
-
+function ActiveLink({ href, children }) {
   const router = useRouter();
 
-  const handleClick = event => {
+  const handleClick = (event) => {
     event.preventDefault();
-    router.push(href)
-  }
+    router.push(href);
+  };
 
   const isCurrentPath = router.pathname === href || router.asPath === href;
 
@@ -19,7 +18,7 @@ const ActiveLink = ({ href, children }) => {
         {children}
       </div>
     </Link>
-  )
+  );
 }
 
-export default ActiveLink
+export default ActiveLink;

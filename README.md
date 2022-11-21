@@ -1,12 +1,11 @@
 ## Where my head is at (update at end of each session?)
 
 Next steps are:
-- favorite.image wrong when added from coin id page
-- need to format coin description
-- Have a card appear on click of each coin to add trades for that coin and store in trades table
-- Break up portfolio page into seperate components?
-- neeed favorites on coins page to load the same way they do on portfolio page
-- break up CoinList into  header and row components
+- Have a card appear on click of each coin to add trades for that coin and store in trades table (next priority + brainstorming)
+- neeed favorites on coins page to load the same way they do on portfolio page (medium priority + testing)
+- break up CoinList into header and row components (low priority)
+- fix favorite.image from coin.id pages (low priority)
+- redirect search to coin page (low priority)
 
 For the slow loading of favorites? (might not need)
 https://www.youtube.com/watch?v=MeRk-5U9XVc&list=PL4cUxeGkcC9hUb6sHthUEwG7r9VDPBMKO&index=9&ab_channel=TheNetNinja

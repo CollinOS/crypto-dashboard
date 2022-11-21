@@ -1,66 +1,64 @@
-import { useState, useEffect } from 'react'
-import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
+import React, { useState, useEffect } from 'react';
+import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react';
 
 export default function Account({ session }) {
-  const supabase = useSupabaseClient()
-  const user = useUser()
-  const [loading, setLoading] = useState(true)
-  const [username, setUsername] = useState(null)
+  const supabase = useSupabaseClient();
+  const user = useUser();
+  const [loading, setLoading] = useState(true);
+  const [username, setUsername] = useState(null);
 
   useEffect(() => {
-    getProfile()
-  }, [session])
+    getProfile();
+  }, [session]);
 
   async function getProfile() {
     try {
-      setLoading(true)
+      setLoading(true);
 
       let { data, error, status } = await supabase
         .from('profiles')
-        .select(`username`)
+        .select('username')
         .eq('id', user.id)
-        .single()
+        .single();
 
       if (error && status !== 406) {
-        throw error
+        throw error;
       }
 
       if (data) {
-        setUsername(data.username)
+        setUsername(data.username);
       }
     } catch (error) {
-      alert('Error loading user data!')
-      console.log(error)
+      alert('Error loading user data!');
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   }
 
-  async function updateProfile({ username }) {
+  async function updateProfile() {
     try {
-      setLoading(true)
+      setLoading(true);
 
       const updates = {
         id: user.id,
         username,
         updated_at: new Date().toISOString(),
-      }
+      };
 
-      let { error } = await supabase.from('profiles').upsert(updates)
-      if (error) throw error
-      alert('Profile updated!')
+      const { error } = await supabase.from('profiles').upsert(updates);
+      if (error) throw error;
+      return ('Profile updated!');
     } catch (error) {
-      alert('Error updating the data!')
-      console.log(error)
+      return ('Error updating the data!');
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   }
 
   return (
     <div className="form-widget">
       <div>
-        <label  htmlFor="email">Email</label>
+        <label htmlFor="email">Email</label>
         <input id="email" type="text" value={session.user.email} disabled />
       </div>
       <div>
@@ -89,5 +87,5 @@ export default function Account({ session }) {
         </button>
       </div>
     </div>
-  )
+  );
 }
