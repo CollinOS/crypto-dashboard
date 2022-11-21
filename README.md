@@ -6,6 +6,9 @@ Next steps are:
 - break up CoinList into header and row components (low priority)
 - fix favorite.image from coin.id pages (low priority)
 - redirect search to coin page (low priority)
+- give account page a buff (low prio)
+
+- is return statements after functions not displaying anywhere a big deal?
 
 For the slow loading of favorites? (might not need)
 https://www.youtube.com/watch?v=MeRk-5U9XVc&list=PL4cUxeGkcC9hUb6sHthUEwG7r9VDPBMKO&index=9&ab_channel=TheNetNinja

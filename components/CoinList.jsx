@@ -9,11 +9,11 @@ function CoinList({ coins }) {
   const [search, setSearch] = useState('');
   const [sort, setSort] = useState('desc');
 
-  function isAscending() {
+  const isAscending = () => {
     sort === 'asc'
       ? coins.sort((a, b) => (a.market_cap_rank > b.market_cap_rank ? 1 : -1))
       : coins.sort((a, b) => (a.market_cap_rank < b.market_cap_rank ? 1 : -1));
-  }
+  };
 
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {

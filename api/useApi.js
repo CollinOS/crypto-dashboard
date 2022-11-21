@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const useApi = (url) => {
 
-  const [coins, setCoins] = useState([])
+  const [coins, setCoins] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect (() => {

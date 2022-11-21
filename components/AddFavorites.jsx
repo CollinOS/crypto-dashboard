@@ -40,7 +40,6 @@ export default function AddFavorites({ data }) {
   // ADDS FAVORITE TO DB AND LOCAL STORAGE
   async function addFavorites() {
     try {
-      // eslint-disable-next-line no-alert
       if (!user) alert('Sign In or Create an Account to add coins to your portfolio!');
       const insertData = {
         userId: user.id,
