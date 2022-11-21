@@ -6,13 +6,13 @@ import AddFavorites from './AddFavorites'
 
 function CoinList({ coins }) {
   const [search, setSearch] = useState('');
-  const [sort, setSort] = useState('');
+  const [sort, setSort] = useState('desc');
 
-  useEffect(() => {
-    sort === 'desc'
-      ? coins.sort((a, b) => (a.market_cap_rank < b.market_cap_rank ? 1 : -1))
-      : coins.sort((a, b) => (a.market_cap_rank > b.market_cap_rank ? 1 : -1))
-  }, [coins, sort])
+  function isAscending() {
+    sort === 'asc'
+    ? coins.sort((a, b) => (a.market_cap_rank > b.market_cap_rank ? 1 : -1))
+    : coins.sort((a, b) => (a.market_cap_rank < b.market_cap_rank ? 1 : -1))
+  }
 
   return (
     <div className='page-center'>
@@ -26,12 +26,12 @@ function CoinList({ coins }) {
       </div>
 
       <table className='table-fixed w-3/4 text-sm'>
-        <thead> {/*    COLUMN LABELS    */}
+        <thead>{/*    COLUMN LABELS    */}
           <tr>
             <td className='border-b border-dark-border font-bold px-4 py-4 text-primary w-4'></td>
             { sort === 'asc'
-              ? <td className='border-b border-dark-border font-bold px-4 py-4 text-primary w-12 cursor-pointer' onClick={() => setSort('desc')}>#</td>
-              : <td className='border-b border-dark-border font-bold px-4 py-4 text-primary w-12 cursor-pointer' onClick={() => setSort('asc')}>#</td>
+              ? <td className='border-b border-dark-border font-bold px-4 py-4 text-primary w-12 cursor-pointer' onClick={() => {setSort('desc'); isAscending()}}>#</td>
+              : <td className='border-b border-dark-border font-bold px-4 py-4 text-primary w-12 cursor-pointer' onClick={() => {setSort('asc'); isAscending()}}>#</td>
             }
             <td className='border-b border-dark-border font-bold px-4 py-4 text-primary'>Coin</td>
             <td className='border-b border-dark-border font-bold px-4 py-4 text-primary w-32 text-right'>Price (USD)</td>
@@ -40,7 +40,7 @@ function CoinList({ coins }) {
             <td className='border-b border-dark-border font-bold px-4 py-4 text-primary w-48 text-right'>Market Cap</td>
           </tr>
         </thead>
-        <tbody> {/*    COIN ROWS   */}
+        <tbody>{/*    COIN ROWS   */}
           {coins
             .filter((coin) => (search.toUpperCase() === ''
               ? coin
