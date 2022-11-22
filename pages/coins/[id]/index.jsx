@@ -38,7 +38,7 @@ export default function Coin({ coin }) {
                 : null}
               {coin.market_data?.price_change_percentage_24h_in_currency
                 ? (
-                  <p className={coin.market_data?.price_change_percentage_24h_in_currency > 0 ? 'text-[#00e5c3] text-lg pl-2' : 'text-orange text-lg pl-2'}>
+                  <p className={coin.market_data.price_change_percentage_24h_in_currency.usd > 0 ? 'text-green text-lg pl-2' : 'text-red text-lg pl-2'}>
                     {coin.market_data.price_change_percentage_24h_in_currency.usd.toFixed(1)}
                     %
                   </p>
@@ -94,44 +94,44 @@ export default function Coin({ coin }) {
               <p className="text-secondary text-md">30d</p>
               <p className="text-secondary text-md">1y</p>
               {coin.market_data?.price_change_percentage_1h_in_currency.usd ? (
-                <p className={coin.market_data?.price_change_percentage_1h_in_currency > 0 ? 'text-[#00e5c3] text-sm' : 'text-orange text-sm'}>
+                <p className={coin.market_data.price_change_percentage_1h_in_currency.usd > 0 ? 'text-green text-sm' : 'text-red text-sm'}>
                   {coin.market_data.price_change_percentage_1h_in_currency.usd.toFixed(1)}
                   %
                 </p>
               ) : 'N/A'}
               {coin.market_data?.price_change_percentage_24h_in_currency.usd ? (
-                <p className={coin.market_data?.price_change_percentage_24h_in_currency > 0 ? 'text-[#00e5c3] text-sm' : 'text-orange text-sm'}>
+                <p className={coin.market_data.price_change_percentage_24h_in_currency.usd > 0 ? 'text-green text-sm' : 'text-red text-sm'}>
                   {coin.market_data.price_change_percentage_24h_in_currency.usd.toFixed(1)}
                   %
                 </p>
               ) : 'N/A'}
               {coin.market_data?.price_change_percentage_7d_in_currency.usd ? (
-                <p className={coin.market_data?.price_change_percentage_7d_in_currency > 0 ? 'text-[#00e5c3] text-sm' : 'text-orange text-sm'}>
+                <p className={coin.market_data.price_change_percentage_7d_in_currency.usd > 0 ? 'text-green text-sm' : 'text-red text-sm'}>
                   {coin.market_data.price_change_percentage_7d_in_currency.usd.toFixed(1)}
                   %
                 </p>
               ) : 'N/A'}
               {coin.market_data?.price_change_percentage_14d_in_currency.usd ? (
-                <p className={coin.market_data?.price_change_percentage_14d_in_currency > 0 ? 'text-[#00e5c3] text-sm' : 'text-orange text-sm'}>
+                <p className={coin.market_data.price_change_percentage_14d_in_currency.usd > 0 ? 'text-green text-sm' : 'text-red text-sm'}>
                   {coin.market_data.price_change_percentage_14d_in_currency.usd.toFixed(1)}
                   %
                 </p>
               ) : 'N/A'}
               {coin.market_data?.price_change_percentage_30d_in_currency.usd ? (
-                <p className={coin.market_data?.price_change_percentage_30d_in_currency > 0 ? 'text-[#00e5c3] text-sm' : 'text-orange text-sm'}>
+                <p className={coin.market_data.price_change_percentage_30d_in_currency.usd > 0 ? 'text-green text-sm' : 'text-red text-sm'}>
                   {coin.market_data.price_change_percentage_30d_in_currency.usd.toFixed(1)}
                   %
                 </p>
               ) : 'N/A'}
               {coin.market_data?.price_change_percentage_1y_in_currency.usd ? (
-                <p className={coin.market_data?.price_change_percentage_1y_in_currency > 0 ? 'text-[#00e5c3] text-sm' : 'text-orange text-sm'}>
+                <p className={coin.market_data.price_change_percentage_1y_in_currency.usd > 0 ? 'text-green text-sm' : 'text-red text-sm'}>
                   {coin.market_data.price_change_percentage_1y_in_currency.usd.toFixed(1)}
                   %
                 </p>
               ) : 'N/A'}
             </div>
 
-            <div className="p-4" />
+            <div className="p-6" />
 
             <p
               className="text-secondary text-sm"

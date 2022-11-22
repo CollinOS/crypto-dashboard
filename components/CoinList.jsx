@@ -77,7 +77,7 @@ function CoinList({ coins }) {
                   $
                   {coin.current_price.toLocaleString()}
                 </td>
-                <td className={coin.price_change_percentage_24h.toFixed(2) > 0 ? 'text-[#00e5c3] border-b border-dark-border px-4 py-4 text-right' : 'text-orange border-b border-dark-border px-4 py-4 text-right'}>
+                <td className={coin.price_change_percentage_24h.toFixed(2) > 0 ? 'text-green border-b border-dark-border px-4 py-4 text-right' : 'text-red border-b border-dark-border px-4 py-4 text-right'}>
                   {coin.price_change_percentage_24h.toFixed(1)}
                   %
                 </td>

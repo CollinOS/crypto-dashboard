@@ -7,8 +7,11 @@ Next steps are:
 - fix favorite.image from coin.id pages (low priority)
 - redirect search to coin page (low priority)
 - give account page a buff (low prio)
-
+- create clean loading states (low prio)
+- if someone favorites a coin from a different device will localStorage update or will db & localStorage be out of sync?
+  sessionStorage could solve this but causes favorites to refresh so need to get them loading faster if so.
 - is return statements after functions not displaying anywhere a big deal?
+- look into rendering the coins server side
 
 For the slow loading of favorites? (might not need)
 https://www.youtube.com/watch?v=MeRk-5U9XVc&list=PL4cUxeGkcC9hUb6sHthUEwG7r9VDPBMKO&index=9&ab_channel=TheNetNinja

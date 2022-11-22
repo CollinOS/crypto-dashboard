@@ -85,7 +85,7 @@ export default function AddFavorites({ data }) {
     <div>
       {favorites.find((favorite) => favorite.coin === data.id) !== undefined
         ? <AiFillStar onClick={() => { deleteFavorites(); }} className="text-orange text-lg hover:text-secondary duration-100" />
-        : <AiOutlineStar onClick={() => { addFavorites(); }} className="text-secondary text-lg hover:text-primary active:text-orange duration-100" />}
+        : <AiOutlineStar onClick={() => { addFavorites(); }} className="text-secondary text-lg hover:text-orange duration-100" />}
     </div>
   );
 }

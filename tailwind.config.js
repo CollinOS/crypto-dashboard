@@ -20,6 +20,8 @@ module.exports = {
       'primary': '#FFFFFF',
       'secondary': '#A7A4B5',
       'orange': '#FFA500',
+      'red': '#EA3943',
+      'green': '#16C784',
       'transparent': 'transparent'
     },
     extend: {},
