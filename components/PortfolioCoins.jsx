@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react';
 import Loading from './Loading';
-// import AddFavorites from './AddFavorites';
 
 export default function PortfolioCoins() {
   const supabase = useSupabaseClient();
@@ -31,7 +30,7 @@ export default function PortfolioCoins() {
           }
         }
       } catch (error) {
-        return ('There was an error');
+        console.log(error)
       } finally {
         setLoading(false);
       }
@@ -48,7 +47,6 @@ export default function PortfolioCoins() {
         .map((favorite) => (
           <div key={favorite.id} favorite={favorite} className="bg-gradient-to-br from-purple via-dark-hov to-purple rounded-lg p-[1px] m-4">
             <div className="bg-dark rounded-lg flex items-center justify-center p-4">
-              {/* <AddFavorites favorite={favorite}/> */}
               <Image src={favorite.image} width={50} height={50} alt="coin logo" className="rounded-full" />
               <h3 className="ml-2">{favorite.name}</h3>
             </div>
