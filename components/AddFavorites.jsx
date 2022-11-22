@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
+import Loading from './Loading';
 
 export default function AddFavorites({ data }) {
   const supabase = useSupabaseClient();
@@ -79,7 +80,7 @@ export default function AddFavorites({ data }) {
   }
 
   // LOADING
-  if (loading) { return ('Loading...'); }
+  if (loading) { return (<Loading />); }
 
   return (
     <div>

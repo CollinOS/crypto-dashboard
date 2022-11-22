@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+// Client side data fetcher :: if used should probably change to SWR
 const useApi = (url) => {
 
   const [coins, setCoins] = useState([]);
