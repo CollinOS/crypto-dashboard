@@ -71,6 +71,11 @@ const PortfolioTrades = () => {
     }
   }
 
+  const handleChange = (buy, sell) => {
+    buy === true ? setSell(false) : setSell(true)
+    sell === true ? setBuy(false) : setBuy(true)
+  }
+
   // LOADING
   if (loading) { return (<Loading />); }
 
@@ -112,10 +117,21 @@ const PortfolioTrades = () => {
               onChange={(e) => setCoinAmount(e.target.value)}
             />
 
-            {/* <input type="radio" id="buy" value="Buy" onChange={setBuy(true)}/>
-            <label for="buy">Buy</label>
-            <input type="radio" id="sell" value="Sell" onChange={setSell(true)}/>
-            <label for="sell">Sell</label> */}
+            <input 
+              type="radio" 
+              id="buy" 
+              // value="true" 
+              // checked={buy === true} 
+              onChange={handleChange} />
+            <label htmlFor="buy">Buy</label>
+
+            <input 
+              type="radio" 
+              id="sell"
+              // value="true" 
+              // checked={sell === true}
+              onChange={handleChange}/>
+            <label htmlFor="sell">Sell</label>
 
             <button
               onClick={() => addTrade()}
