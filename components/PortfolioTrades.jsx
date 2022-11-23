@@ -12,8 +12,8 @@ const PortfolioTrades = () => {
   const [coinName, setCoinName] = useState('')
   const [coinPrice, setCoinPrice] = useState('')
   const [coinAmount, setCoinAmount] = useState('')
-  const [buy, setBuy] = useState('')
-  const [sell, setSell] = useState('')
+  const [buy, setBuy] = useState(true)
+  const [sell, setSell] = useState(false)
   const [formError, setFormError] = useState(null)
 
   // GETS TRADES FROM DB UNLESS THEY ALREADY EXIST IN LOCAL STORAGE
@@ -52,15 +52,23 @@ const PortfolioTrades = () => {
     if (trades) getTotal();
   }, [trades]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
+  async function addTrade() {
+    try {
+      const insertData = {
+        userId: user.id,
+        coin: coinName,
+        coin_price_usd: coinPrice,
+        amount_of_coins: coinAmount,
+        buy: buy,
+        sell: sell
+      };
 
-    if (!coinName || !coinPrice || !coinAmount || !buy || !sell) {
-      setFormError('Error submitting. Please fill out all of the fields above')
-      return
+      const { error } = await supabase.from('trades').insert(insertData);
+      if (error) throw error;
+      console.log('trade add success')
+    } catch (error) {
+      console.log(error)
     }
-
-    console.log(coinName, coinPrice, coinAmount)
   }
 
   // LOADING
@@ -76,7 +84,7 @@ const PortfolioTrades = () => {
         {/*       TRADE FORM       */}
 
         <div className="flex">
-          <form>
+          <div>
             <label htmlFor="coinName"></label>
             <input 
               type="text" 
@@ -104,17 +112,20 @@ const PortfolioTrades = () => {
               onChange={(e) => setCoinAmount(e.target.value)}
             />
 
-            {/* <input type="radio" id="buy" name="fav_language" value="Buy" onChange={setBuy(true)}/>
+            {/* <input type="radio" id="buy" value="Buy" onChange={setBuy(true)}/>
             <label for="buy">Buy</label>
-            <input type="radio" id="sell" name="fav_language" value="Sell" onChange={setSell(true)}/>
+            <input type="radio" id="sell" value="Sell" onChange={setSell(true)}/>
             <label for="sell">Sell</label> */}
 
-            <button onClick={() => handleSubmit()} disabled={loading}>
+            <button
+              onClick={() => addTrade()}
+              disabled={loading}
+            >
               {loading ? 'Loading ...' : 'Submit'}
             </button>
 
             {formError && <p className='text-red'>{formError}</p>}
-          </form>
+          </div>
         </div>
       </div>
     </div>
