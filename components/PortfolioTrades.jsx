@@ -6,7 +6,15 @@ const PortfolioTrades = () => {
   const supabase = useSupabaseClient();
   const user = useUser();
   const [trades, setTrades] = useState([]);
+  const [portAmount, setPortAmount] = useState(0);
   const [loading, setLoading] = useState(false);
+  // FORM FIELDS
+  const [coinName, setCoinName] = useState('')
+  const [coinPrice, setCoinPrice] = useState('')
+  const [coinAmount, setCoinAmount] = useState('')
+  const [buy, setBuy] = useState('')
+  const [sell, setSell] = useState('')
+  const [formError, setFormError] = useState(null)
 
   // GETS TRADES FROM DB UNLESS THEY ALREADY EXIST IN LOCAL STORAGE
   useEffect(() => {
@@ -31,7 +39,29 @@ const PortfolioTrades = () => {
     if (user) getTrades();
   }, [user, supabase]);
 
+  // GET PORTFOLIO AMOUNT EACH TIME TRADES CHANGES, GETS BUYS AND SELLS THEN FINDS TOTAL
+  useEffect(() => {
+    function getTotal() {
+      const buys = trades.map((trade) => trade.buy ? trade.coin_price_usd*trade.amount_of_coins : 0)
+      const sells = trades.map((trade) => trade.sell ? trade.coin_price_usd*trade.amount_of_coins : 0)
+      const buyTotal = buys.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+      const sellTotal = sells.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+      const total = buyTotal - sellTotal
+      setPortAmount(total.toLocaleString())
+    }
+    if (trades) getTotal();
+  }, [trades]);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    if (!coinName || !coinPrice || !coinAmount || !buy || !sell) {
+      setFormError('Error submitting. Please fill out all of the fields above')
+      return
+    }
+
+    console.log(coinName, coinPrice, coinAmount)
+  }
 
   // LOADING
   if (loading) { return (<Loading />); }
@@ -39,8 +69,53 @@ const PortfolioTrades = () => {
   return (
     <div className="w-3/4 bg-gradient-to-br from-purple via-dark-hov to-purple rounded-lg p-[1px]">
       <div className="bg-dark rounded-lg p-8">
-        <h4>Portfolio</h4>
-        <p className='text-lg'>$0.00</p>
+        <p className='text-lg text-secondary'>Portfolio</p>
+        <p className='text-xl'>${portAmount}</p>
+        <div className='p-6' />
+        
+        {/*       TRADE FORM       */}
+
+        <div className="flex">
+          <form>
+            <label htmlFor="coinName"></label>
+            <input 
+              type="text" 
+              id="coinName" 
+              value={coinName}
+              placeholder='Coin'
+              onChange={(e) => setCoinName(e.target.value)}
+            />
+
+            <label htmlFor="coinPrice"></label>
+            <input 
+              type="number" 
+              id="coinPrice" 
+              value={coinPrice}
+              placeholder='Coin Price'
+              onChange={(e) => setCoinPrice(e.target.value)}
+            />
+
+            <label htmlFor="coinAmount"></label>
+            <input 
+              type="number" 
+              id="coinAmount" 
+              value={coinAmount}
+              placeholder='# of coins'
+              onChange={(e) => setCoinAmount(e.target.value)}
+            />
+
+            {/* <input type="radio" id="buy" name="fav_language" value="Buy" onChange={setBuy(true)}/>
+            <label for="buy">Buy</label>
+            <input type="radio" id="sell" name="fav_language" value="Sell" onChange={setSell(true)}/>
+            <label for="sell">Sell</label> */}
+
+            <button onClick={() => handleSubmit()} disabled={loading}>
+              {loading ? 'Loading ...' : 'Submit'}
+            </button>
+
+            {formError && <p className='text-red'>{formError}</p>}
+          </form>
+        </div>
       </div>
     </div>
   )
