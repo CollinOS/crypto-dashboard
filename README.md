@@ -11,6 +11,8 @@ Next steps are:
 - is return statements after functions not displaying anywhere a big deal?
 - add login with GitHub (low)
 
+- way in the future could be cool to boot up my old server and run sql off of it and just have all of my side projects use it.
+
 For the slow loading of favorites? (might not need)
 https://www.youtube.com/watch?v=MeRk-5U9XVc&list=PL4cUxeGkcC9hUb6sHthUEwG7r9VDPBMKO&index=9&ab_channel=TheNetNinja
 
