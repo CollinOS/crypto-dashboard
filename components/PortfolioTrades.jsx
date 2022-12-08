@@ -14,13 +14,14 @@ const PortfolioTrades = () => {
   const [coinAmount, setCoinAmount] = useState('')
   const [buy, setBuy] = useState(true)
   const [sell, setSell] = useState(false)
+  const [change, setChange] = useState(false)
   const [formError, setFormError] = useState(null)
 
   // GETS TRADES FROM DB UNLESS THEY ALREADY EXIST IN LOCAL STORAGE
   useEffect(() => {
     async function getTrades() {
       try {
-        setLoading(true);
+        // setLoading(true);
         const { data, error } = await supabase
           .from('trades')
           .select('*')
@@ -32,12 +33,13 @@ const PortfolioTrades = () => {
         }
       } catch (error) {
         console.log(error)
-      } finally {
-        setLoading(false);
-      }
+      } 
+      // finally {
+      //   setLoading(false);
+      // }
     }
     if (user) getTrades();
-  }, [user, supabase]);
+  }, [user, supabase, change]);
 
   // GET PORTFOLIO AMOUNT EACH TIME TRADES CHANGES, GETS BUYS AND SELLS THEN FINDS TOTAL
   useEffect(() => {
@@ -68,16 +70,22 @@ const PortfolioTrades = () => {
       console.log('trade add success')
     } catch (error) {
       console.log(error)
+    } finally {
+      change === false ? setChange(true) : setChange(false)
     }
   }
 
-  const handleChange = (buy, sell) => {
-    buy === true ? setSell(false) : setSell(true)
-    sell === true ? setBuy(false) : setBuy(true)
+  const handleBuy = () => {
+    setSell(false)
+    setBuy(true)
+  }
+  const handleSell = () => {
+    setSell(true)
+    setBuy(false)
   }
 
   // LOADING
-  if (loading) { return (<Loading />); }
+  // if (loading) { return (<Loading />); }
 
   return (
     <div className="w-3/4 bg-gradient-to-br from-purple via-dark-hov to-purple rounded-lg p-[1px]">
@@ -120,17 +128,17 @@ const PortfolioTrades = () => {
             <input 
               type="radio" 
               id="buy" 
-              // value="true" 
-              // checked={buy === true} 
-              onChange={handleChange} />
+              value="buy" 
+              checked={buy === true} 
+              onChange={handleBuy} />
             <label htmlFor="buy">Buy</label>
 
             <input 
               type="radio" 
               id="sell"
-              // value="true" 
-              // checked={sell === true}
-              onChange={handleChange}/>
+              value="sell" 
+              checked={sell === true}
+              onChange={handleSell} />
             <label htmlFor="sell">Sell</label>
 
             <button
