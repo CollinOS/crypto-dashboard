@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react';
-import Loading from './Loading';
+// import Loading from './Loading';
 
 const PortfolioTrades = () => {
   const supabase = useSupabaseClient();
