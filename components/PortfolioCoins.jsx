@@ -42,13 +42,13 @@ export default function PortfolioCoins() {
   if (loading) { return (<Loading />); }
 
   return (
-    <div className="flex flex-row flex-wrap w-4/5 items-center justify-center">
+    <div className="flex flex-row flex-wrap w-4/5 items-center justify-center pt-8">
       {favorites
         .map((favorite) => (
-          <div key={favorite.id} favorite={favorite} className="bg-gradient-to-br from-purple via-dark-hov to-purple rounded-lg p-[1px] m-4">
+          <div key={favorite.id} favorite={favorite} className="rounded-lg p-[1px] m-2 duration-100 hover:bg-purple">
             <div className="bg-dark rounded-lg flex items-center justify-center p-4">
-              <Image src={favorite.image} width={50} height={50} alt="coin logo" className="rounded-full" />
-              <h3 className="ml-2">{favorite.name}</h3>
+              <Image src={favorite.image} width={30} height={30} alt="coin logo" className="rounded-full" />
+              <p className="ml-2 text-lg">{favorite.name}</p>
             </div>
           </div>
         ))}
