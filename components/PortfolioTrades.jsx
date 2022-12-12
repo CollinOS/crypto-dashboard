@@ -96,51 +96,62 @@ const PortfolioTrades = () => {
         
         {/*       TRADE FORM       */}
 
-        <div className="flex">
-          <div>
-            <label htmlFor="coinName"></label>
-            <input 
-              type="text" 
-              id="coinName" 
-              value={coinName}
-              placeholder='Coin'
-              onChange={(e) => setCoinName(e.target.value)}
-            />
-
-            <label htmlFor="coinPrice"></label>
-            <input 
-              type="number" 
-              id="coinPrice" 
-              value={coinPrice}
-              placeholder='Coin Price'
-              onChange={(e) => setCoinPrice(e.target.value)}
-            />
-
-            <label htmlFor="coinAmount"></label>
-            <input 
-              type="number" 
-              id="coinAmount" 
-              value={coinAmount}
-              placeholder='# of coins'
-              onChange={(e) => setCoinAmount(e.target.value)}
-            />
-
-            <input 
-              type="radio" 
-              id="buy" 
-              value="buy" 
-              checked={buy === true} 
-              onChange={handleBuy} />
-            <label htmlFor="buy">Buy</label>
-
-            <input 
-              type="radio" 
-              id="sell"
-              value="sell" 
-              checked={sell === true}
-              onChange={handleSell} />
-            <label htmlFor="sell">Sell</label>
-
+        <div className="flex flex-col">
+          <div className="flex-col">
+            <div>
+              <label htmlFor="coinName"></label>
+              <input 
+                className='w-96'
+                type="text" 
+                id="coinName" 
+                value={coinName}
+                placeholder='Coin'
+                onChange={(e) => setCoinName(e.target.value)}
+              />
+            </div>
+            <div className='p-1'/>
+            <div>
+              <label htmlFor="coinPrice"></label>
+              <input 
+                className='w-96'
+                type="number" 
+                id="coinPrice" 
+                value={coinPrice}
+                placeholder='Coin Price'
+                onChange={(e) => setCoinPrice(e.target.value)}
+              />
+            </div>
+            <div className='p-1'/>
+            <div>
+              <label htmlFor="coinAmount"></label>
+              <input 
+                className='w-96'
+                type="number" 
+                id="coinAmount" 
+                value={coinAmount}
+                placeholder='# of coins'
+                onChange={(e) => setCoinAmount(e.target.value)}
+              />
+            </div>
+            <div className='p-1'/>
+            <div className='pl-1'>
+              <input className='accent-purple'
+                type="radio" 
+                id="buy" 
+                value="buy" 
+                checked={buy === true} 
+                onChange={handleBuy} />
+              <label htmlFor="buy">Buy</label>
+              <div className='p-1'/>
+              <input className='accent-purple'
+                type="radio" 
+                id="sell"
+                value="sell" 
+                checked={sell === true}
+                onChange={handleSell} />
+              <label htmlFor="sell">Sell</label>
+            </div>
+            <div className='p-1'/>
             <button
               onClick={() => addTrade()}
               disabled={loading}
