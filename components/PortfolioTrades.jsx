@@ -96,7 +96,7 @@ const PortfolioTrades = () => {
         
         {/*       TRADE FORM       */}
 
-        <div className="flex flex-col">
+        <div className='flex'>
           <div className="flex-col">
             <div>
               <label htmlFor="coinName"></label>
@@ -160,6 +160,20 @@ const PortfolioTrades = () => {
             </button>
 
             {formError && <p className='text-red'>{formError}</p>}
+          </div>
+          <div className='flex-col'>
+            <p className='border-b-2 text-md text-secondary border-purple'>test</p>
+            {trades
+            .map((trade) => (
+              <div key={trade.id} trade={trade}>
+                <div className="grid grid-cols-6 gap-4 text-right">
+                  <p className="text-sm">{trade.coin}</p>
+                  <p className="text-sm">{trade.amount_of_coins}</p>
+                  <p className="text-sm">{trade.coin_price_usd}</p>
+                  <p>{trade.buy == true ? 'buy' : 'sell'}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
