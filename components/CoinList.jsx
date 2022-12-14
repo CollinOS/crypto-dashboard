@@ -44,8 +44,8 @@ function CoinList({ coins }) {
             <td className="border-b border-dark-border font-bold px-4 py-4 text-primary">Coin</td>
             <td className="border-b border-dark-border font-bold px-4 py-4 text-primary w-32 text-right">Price (USD)</td>
             <td className="border-b border-dark-border font-bold px-4 py-4 text-primary w-24 text-right">24h</td>
-            <td className="border-b border-dark-border font-bold px-4 py-4 text-primary w-48 text-right">24h Volume</td>
-            <td className="border-b border-dark-border font-bold px-4 py-4 text-primary w-48 text-right">Market Cap</td>
+            <td className="border-b border-dark-border font-bold px-4 py-4 text-primary w-40 text-right">24h Volume</td>
+            <td className="border-b border-dark-border font-bold px-4 py-4 text-primary w-40 text-right">Market Cap</td>
           </tr>
         </thead>
         <tbody>
@@ -66,7 +66,7 @@ function CoinList({ coins }) {
                       <div className="flex-col">
                         <Image src={coin.image} width={20} height={20} alt="coin logo" className="rounded-full" />
                       </div>
-                      <div className="mx-3 flex-auto">
+                      <div className="ml-3 flex-auto">
                         <span className="mr-3 text-primary font-bold">{coin.name}</span>
                         <span className="text-secondary text-sm">{coin.symbol.toUpperCase()}</span>
                       </div>

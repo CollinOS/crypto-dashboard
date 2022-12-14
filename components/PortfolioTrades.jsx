@@ -162,7 +162,7 @@ const PortfolioTrades = () => {
             {formError && <p className='text-red'>{formError}</p>}
           </div>
           <div className='flex-col'>
-            <p className='border-b-2 text-md text-secondary border-purple'>test</p>
+            <p className='border-b text-md text-secondary border-purple'>test</p>
             {trades
             .map((trade) => (
               <div key={trade.id} trade={trade}>
