@@ -43,9 +43,9 @@ function CoinList({ coins }) {
               : <td className="border-b border-dark-border font-bold px-4 py-4 text-primary w-12 cursor-pointer" onClick={() => { setSort('asc'); isAscending(); }}>#</td>}
             <td className="border-b border-dark-border font-bold px-4 py-4 text-primary">Coin</td>
             <td className="border-b border-dark-border font-bold px-4 py-4 text-primary w-32 text-right">Price (USD)</td>
-            <td className="border-b border-dark-border font-bold px-4 py-4 text-primary w-24 text-right">24h</td>
+            <td className="border-b border-dark-border font-bold px-4 py-4 text-primary w-20 text-right">24h</td>
             <td className="border-b border-dark-border font-bold px-4 py-4 text-primary w-40 text-right">24h Volume</td>
-            <td className="border-b border-dark-border font-bold px-4 py-4 text-primary w-40 text-right">Market Cap</td>
+            <td className="border-b border-dark-border font-bold px-4 py-4 text-primary text-right w-40">Market Cap</td>
           </tr>
         </thead>
         <tbody>
@@ -85,7 +85,7 @@ function CoinList({ coins }) {
                   $
                   {coin.total_volume.toLocaleString()}
                 </td>
-                <td className="border-b border-dark-border px-4 py-4 text-primaryfont-medium text-right">
+                <td className="border-b border-dark-border px-4 py-4 text-primary font-medium text-right">
                   $
                   {coin.market_cap.toLocaleString()}
                 </td>
