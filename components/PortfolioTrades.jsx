@@ -90,14 +90,22 @@ const PortfolioTrades = () => {
   return (
     <div className="w-3/4 bg-gradient-to-br from-purple via-dark-hov to-purple rounded-lg p-[1px]">
       <div className="bg-dark rounded-lg p-8">
-        <p className='text-lg text-secondary'>Portfolio</p>
-        <p className='text-xl'>${portAmount}</p>
+        <div className='flex justify-between'>
+          <div className='flex-col'>
+            <p className='text-lg text-secondary'>Portfolio</p>
+            <p className='text-xl'>${portAmount}</p>
+          </div>
+          <div className='flex-col text-right'>
+            <p className='text-lg text-secondary'>Total Trades</p>
+            <p className='text-xl'>{trades.length}</p>
+          </div>
+        </div>
         <div className='p-6' />
         
         {/*       TRADE FORM       */}
 
-        <div className='xl:flex xl:justify-between flex-wrap'>
-          <div className="flex-col">
+        <div className='2xl:flex 2xl:justify-between flex justify-center flex-wrap'>
+          <div className="flex-col lg:px-10 2xl:px-0 pb-10 2xl:pr-10 2xl:pb-0">
             <div>
               <label htmlFor="coinName"></label>
               <input 
@@ -161,16 +169,21 @@ const PortfolioTrades = () => {
 
             {formError && <p className='text-red'>{formError}</p>}
           </div>
-          <div className='flex-col'>
-            <p className='border-b text-md text-secondary border-purple'>test</p>
+          <div className='flex-col w-92'>
+            <div className="grid grid-cols-4 gap-4 px-1 py-1 border-dark-border">
+              <p className="text-sm text-left">Coin Name</p>
+              <p className="text-sm text-right"># of Coins</p>
+              <p className="text-sm text-right">Price</p>
+              <p className='text-sm text-right'>Buy/ Sell</p>
+            </div>
             {trades
             .map((trade) => (
-              <div key={trade.id} trade={trade} className='text-right'>
-                <div className="grid grid-cols-4 gap-4">
-                  <p className="text-sm">{trade.coin}</p>
-                  <p className="text-sm">{trade.amount_of_coins}</p>
-                  <p className="text-sm">{trade.coin_price_usd}</p>
-                  <p>{trade.buy == true ? 'buy' : 'sell'}</p>
+              <div key={trade.id} trade={trade} className=''>
+                <div className="grid grid-cols-4 gap-4 px-1 py-1 border-t border-dark-border">
+                  <p className="text-sm text-left">{trade.coin}</p>
+                  <p className="text-sm text-right">{trade.amount_of_coins}</p>
+                  <p className="text-sm text-right">${trade.coin_price_usd.toLocaleString()}</p>
+                  <p className='text-sm text-right'>{trade.buy == true ? 'buy' : 'sell'}</p>
                 </div>
               </div>
             ))}
