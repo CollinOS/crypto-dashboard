@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useSession } from '@supabase/auth-helpers-react';
 import { FaCoins, FaStar, FaImage } from 'react-icons/fa';
-import { AiOutlineMenu }  from 'react-icons/ai';
+import { AiOutlineMenu, AiOutlineArrowRight, AiOutlineArrowLeft }  from 'react-icons/ai';
 import ActiveLink from './ActiveLink';
 
 function Sidebar() {
@@ -11,16 +11,15 @@ function Sidebar() {
 
   const isClicked = () => {
     clicked == true ? setClicked(false) : setClicked(true)
-    console.log(clicked)
   }
 
   return (
-    <div>
+    <div className={clicked == true ? 'fixed h-[100%] pl-80 w-[100%] z-10 bg-overlay duration-100 2xl:bg-transparent' : ''} onClick={clicked == true ? isClicked : isClicked}>
       { clicked == true 
-        ? <AiOutlineMenu className="fixed sm:top-6 sm:left-6 md:top-16 md:left-16 text-purple text-lg block pointer 2xl:hidden" onClick={() => { isClicked(); }}/>
-        : <AiOutlineMenu className="fixed sm:top-6 sm:left-6 md:top-16 md:left-16 text-secondary text-lg block pointer 2xl:hidden" onClick={() => { isClicked(); }}/>
+        ? <AiOutlineArrowLeft className="z-30 cursor-pointer fixed sm:top-6 sm:left-6 md:top-16 md:left-72 text-purple text-xl block pointer 2xl:hidden" onClick={() => { isClicked(); }}/>
+        : <AiOutlineArrowRight className="z-30 cursor-pointer fixed sm:top-6 sm:left-6 md:top-16 md:left-16 text-secondary text-xl block pointer 2xl:hidden" onClick={() => { isClicked(); }}/>
       }
-      <div className='sidebar-container border-r border-dark-border hidden 2xl:block'>
+      <div className={clicked == true ? 'sidebar-show' : 'sidebar-hide 2xl:block'}>
         <h2 className="sidebar-logo">
           Coin
           <span className="text-purple">Track</span>

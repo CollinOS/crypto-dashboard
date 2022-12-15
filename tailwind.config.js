@@ -22,7 +22,8 @@ module.exports = {
       'orange': '#FFA500',
       'red': '#EA3943',
       'green': '#16C784',
-      'transparent': 'transparent'
+      'transparent': 'transparent',
+      'overlay': '#16141C88'
     },
     extend: {},
   },

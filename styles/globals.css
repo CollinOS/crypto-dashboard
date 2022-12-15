@@ -86,6 +86,13 @@ STAR ORANGE: #FFA500
     @apply m-1 p-3 w-56 rounded-lg bg-purple hover:bg-purple-hov active:bg-logo-purple duration-100 !important
   }
 
+  .sidebar-show {
+    @apply sidebar-container border-r bg-dark border-dark-border block z-20
+  }
+  .sidebar-hide {
+    @apply sidebar-container border-r border-dark-border hidden
+  }
+
   .page-center {
     @apply flex items-center justify-center flex-col relative overflow-hidden
   }

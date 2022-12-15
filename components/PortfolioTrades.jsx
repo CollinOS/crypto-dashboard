@@ -96,7 +96,7 @@ const PortfolioTrades = () => {
         
         {/*       TRADE FORM       */}
 
-        <div className='flex'>
+        <div className='xl:flex xl:justify-between flex-wrap'>
           <div className="flex-col">
             <div>
               <label htmlFor="coinName"></label>
@@ -165,8 +165,8 @@ const PortfolioTrades = () => {
             <p className='border-b text-md text-secondary border-purple'>test</p>
             {trades
             .map((trade) => (
-              <div key={trade.id} trade={trade}>
-                <div className="grid grid-cols-6 gap-4 text-right">
+              <div key={trade.id} trade={trade} className='text-right'>
+                <div className="grid grid-cols-4 gap-4">
                   <p className="text-sm">{trade.coin}</p>
                   <p className="text-sm">{trade.amount_of_coins}</p>
                   <p className="text-sm">{trade.coin_price_usd}</p>

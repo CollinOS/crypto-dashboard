@@ -1,6 +1,7 @@
 ## Where my head is at (update at end of each session?)
 
 Next steps are:
+- sidebar closes no matter where I click
 - custom loading states for each thing that needs to load could be cool? kind of tedious though for a side thing
 - Have a card appear on click of each coin to add trades for that coin and store in trades table (next priority + brainstorming)
 - break up CoinList into header and row components (low priority)
