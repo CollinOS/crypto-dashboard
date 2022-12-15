@@ -31,7 +31,7 @@ STAR ORANGE: #FFA500
   }
 
   main {
-    @apply sm:p-10 md:p-20 2xl:ml-80 2xl:p-10
+    @apply sm:p-10 md:p-20 xl:ml-80 xl:p-10
   }
 
   h1, h2, h3, h4 {

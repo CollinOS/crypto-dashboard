@@ -16,10 +16,10 @@ function Sidebar() {
   return (
     <div className={clicked == true ? 'fixed h-[100%] pl-80 w-[100%] z-10 bg-overlay duration-100 2xl:bg-transparent' : ''} onClick={clicked == true ? isClicked : isClicked}>
       { clicked == true 
-        ? <AiOutlineArrowLeft className="z-30 cursor-pointer fixed sm:top-6 sm:left-6 md:top-16 md:left-72 text-purple text-xl block pointer 2xl:hidden" onClick={() => { isClicked(); }}/>
-        : <AiOutlineArrowRight className="z-30 cursor-pointer fixed sm:top-6 sm:left-6 md:top-16 md:left-16 text-secondary text-xl block pointer 2xl:hidden" onClick={() => { isClicked(); }}/>
+        ? <AiOutlineArrowLeft className="z-30 cursor-pointer fixed top-16 left-72 text-purple text-xl block pointer 2xl:hidden" onClick={() => { isClicked(); }}/>
+        : <AiOutlineArrowRight className="z-30 cursor-pointer fixed top-16 left-16 text-secondary text-xl block pointer 2xl:hidden" onClick={() => { isClicked(); }}/>
       }
-      <div className={clicked == true ? 'sidebar-show' : 'sidebar-hide 2xl:block'}>
+      <div className={clicked == true ? 'sidebar-show' : 'sidebar-hide xl:block'}>
         <h2 className="sidebar-logo">
           Coin
           <span className="text-purple">Track</span>

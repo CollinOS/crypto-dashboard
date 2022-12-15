@@ -23,7 +23,7 @@ function CoinList({ coins }) {
 
   return (
     <div className="page-center">
-      <div className="flex flex-row justify-between w-3/4">
+      <div className="flex flex-row justify-between w-full 2xl:w-3/4">
         {/*    HEADER AND SEARCH    */}
         <h4 className="py-2 my-12">Cryptocurrency Prices by Market Cap</h4>
         <input
@@ -33,7 +33,7 @@ function CoinList({ coins }) {
         />
       </div>
 
-      <table className="table-fixed w-3/4 text-sm">
+      <table className="table-fixed w-full 2xl:w-3/4 text-sm">
         <thead>
           {/*    COLUMN LABELS    */}
           <tr>
@@ -44,7 +44,7 @@ function CoinList({ coins }) {
             <td className="border-b border-dark-border font-bold px-4 py-4 text-primary">Coin</td>
             <td className="border-b border-dark-border font-bold px-4 py-4 text-primary w-32 text-right">Price (USD)</td>
             <td className="border-b border-dark-border font-bold px-4 py-4 text-primary w-20 text-right">24h</td>
-            <td className="border-b border-dark-border font-bold px-4 py-4 text-primary w-40 text-right">24h Volume</td>
+            <td className="border-b hidden lg:table-cell border-dark-border font-bold px-4 py-4 text-primary w-40 text-right">24h Volume</td>
             <td className="border-b border-dark-border font-bold px-4 py-4 text-primary text-right w-40">Market Cap</td>
           </tr>
         </thead>
@@ -81,7 +81,7 @@ function CoinList({ coins }) {
                   {coin.price_change_percentage_24h.toFixed(1)}
                   %
                 </td>
-                <td className="border-b border-dark-border px-4 py-4 text-primary font-medium text-right">
+                <td className="border-b hidden lg:table-cell border-dark-border px-4 py-4 text-primary font-medium text-right">
                   $
                   {coin.total_volume.toLocaleString()}
                 </td>
