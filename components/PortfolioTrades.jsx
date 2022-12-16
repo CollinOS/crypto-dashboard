@@ -29,7 +29,7 @@ const PortfolioTrades = () => {
 
         if (error) throw error;
         if (data != null) {
-          setTrades(data);
+          setTrades(data.reverse());
         }
       } catch (error) {
         console.log(error)
@@ -176,15 +176,17 @@ const PortfolioTrades = () => {
               <p className="text-sm text-right">Price</p>
               <p className='text-sm text-right'>Buy/ Sell</p>
             </div>
-            {trades
+            {trades.length == 0 ? <p className="text-sm text-center pt-16 border-t border-dark-border">Recent Trades</p> : 
+            trades
+            .slice(0, 8)
             .map((trade) => (
               <div key={trade.id} trade={trade} className=''>
                 <div className="grid grid-cols-4 gap-4 px-1 py-1 border-t border-dark-border">
                   <p className="text-sm text-left">{trade.coin}</p>
                   <p className="text-sm text-right">{trade.amount_of_coins}</p>
                   <p className="text-sm text-right">${trade.coin_price_usd.toLocaleString()}</p>
-                  <p className='text-sm text-right'>{trade.buy == true ? 'buy' : 'sell'}</p>
-                </div>
+                  <p className='text-sm text-right'>{trade.buy == true ? 'Buy' : 'Sell'}</p>
+                </div> 
               </div>
             ))}
           </div>

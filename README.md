@@ -1,7 +1,7 @@
 ## Where my head is at (update at end of each session?)
 
 Next steps are:
-- now i gotta display only te most recent 8 trades
+- Track portfolio balance based off trade, sells go into a wallet state and take from that for buys if exists, so if I sell 100 then 100 goes into the wallet state and still contributes to portfolio amount, then next buy will take from that wallet state until empty
 - sidebar closes no matter where I click
 - custom loading states for each thing that needs to load could be cool? kind of tedious though for a side thing
 - Have a card appear on click of each coin to add trades for that coin and store in trades table (next priority + brainstorming)
