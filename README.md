@@ -1,6 +1,8 @@
 ## Where my head is at (update at end of each session?)
 
 Next steps are:
+- making mobile friendly (high prio)
+- working on clear trades
 - Track portfolio balance based off trade, sells go into a wallet state and take from that for buys if exists, so if I sell 100 then 100 goes into the wallet state and still contributes to portfolio amount, then next buy will take from that wallet state until empty
 - sidebar closes no matter where I click
 - custom loading states for each thing that needs to load could be cool? kind of tedious though for a side thing
@@ -14,9 +16,9 @@ Next steps are:
 - is return statements after functions not displaying anywhere a big deal?
 - add login with GitHub (low)
 
-- way in the future could be cool to boot up my old server and run sql off of it and just have all of my side projects use it.
+- in the future could be cool to boot up my old server and run sql off of it and just have all of my side projects use it.
 
-For the slow loading of favorites? (might not need)
+For the slow loading of favorites? (might not need) (yeah don't think I need but keeping for now just in case)
 https://www.youtube.com/watch?v=MeRk-5U9XVc&list=PL4cUxeGkcC9hUb6sHthUEwG7r9VDPBMKO&index=9&ab_channel=TheNetNinja
 
 ## High Level Description (Draft for now)

@@ -19,7 +19,7 @@ function Sidebar() {
         ? <AiOutlineArrowLeft className="z-30 cursor-pointer fixed top-16 left-72 text-purple text-xl block pointer xl:hidden" onClick={() => { isClicked(); }}/>
         : <AiOutlineArrowRight className="z-30 cursor-pointer fixed top-16 left-16 text-secondary text-xl block pointer xl:hidden" onClick={() => { isClicked(); }}/>
       }
-      <div className={clicked == true ? 'sidebar-show' : 'sidebar-hide xl:block'}>
+      <div className={clicked == true ? 'sidebar-show duration-100' : 'sidebar-hide duration-100 xl:block'}>
         <h2 className="sidebar-logo">
           Coin
           <span className="text-purple">Track</span>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react';
 import Loading from './Loading';
+import { BsTrash } from 'react-icons/bs';
 
 const PortfolioTrades = () => {
   const supabase = useSupabaseClient();
@@ -106,7 +107,10 @@ const PortfolioTrades = () => {
           </div>
           <div className='flex-col text-right'>
             <p className='text-lg text-secondary'>Total Trades</p>
-            <p onClick={clearTrades}>X</p><p className='text-xl'>{trades.length}</p>
+            <div className='flex justify-end items-center'>
+              <BsTrash className='text-md text-secondary mr-4' onClick={clearTrades} />
+              <p className='text-xl'>{trades.length}</p>
+            </div>
           </div>
         </div>
         <div className='p-6' />
