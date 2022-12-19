@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Testing out creating custom loading component for the coin rows
 function LoadingRow() {
   return (
     <div>

@@ -6,7 +6,7 @@ import DOMPurify from 'isomorphic-dompurify';
 export default function Coin({ coin }) {
   return (
     <main>
-      <div className="page-center pt-14">
+      <div className="page-center py-14">
         <div className="w-11/12 lg:w-3/4 bg-gradient-to-br from-purple via-dark-hov to-purple rounded-lg p-[1px]">
           <div className="bg-dark rounded-lg p-8">
             <p className="w-fit bg-dark-hov text-sm p-2 rounded-lg">
