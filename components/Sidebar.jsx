@@ -25,7 +25,7 @@ function Sidebar() {
           <span className="text-purple">Track</span>
         </h2>
 
-        <ActiveLink href="/coins">
+        <ActiveLink href="/">
           <h5 className="flex items-center">
             <span className="text-secondary"><FaCoins className="mr-3" /></span>
             Coins
