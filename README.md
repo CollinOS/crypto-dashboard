@@ -2,7 +2,6 @@
 
 Next steps are:
 - making mobile friendly (high prio)
-- working on clear trades
 - Track portfolio balance based off trade, sells go into a wallet state and take from that for buys if exists, so if I sell 100 then 100 goes into the wallet state and still contributes to portfolio amount, then next buy will take from that wallet state until empty
 - sidebar closes no matter where I click
 - custom loading states for each thing that needs to load could be cool? kind of tedious though for a side thing

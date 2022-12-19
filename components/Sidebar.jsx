@@ -14,7 +14,7 @@ function Sidebar() {
   }
 
   return (
-    <div className={clicked == true ? 'fixed h-[100%] pl-80 w-[100%] z-10 bg-overlay duration-100 xl:bg-transparent' : ''} onClick={clicked == true ? isClicked : isClicked}>
+    <div className={clicked == true ? 'fixed h-[100%] w-[100%] z-10 bg-overlay duration-100 xl:bg-transparent' : ''} onClick={clicked == true ? isClicked : isClicked}>
       { clicked == true 
         ? <AiOutlineArrowLeft className="z-30 cursor-pointer fixed top-16 left-72 text-purple text-xl block pointer xl:hidden" onClick={() => { isClicked(); }}/>
         : <AiOutlineArrowRight className="z-30 cursor-pointer fixed top-16 left-16 text-secondary text-xl block pointer xl:hidden" onClick={() => { isClicked(); }}/>

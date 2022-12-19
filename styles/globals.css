@@ -54,7 +54,7 @@ STAR ORANGE: #FFA500
     @apply text-xl sm:text-2xl
   }
   button {
-    @apply border-none m-1 p-3 w-96 rounded-lg bg-purple hover:bg-purple-hov active:bg-logo-purple duration-100 !important
+    @apply border-none m-1 p-3 sm:w-96 rounded-lg bg-purple hover:bg-purple-hov active:bg-logo-purple duration-100 !important
   }
   
   input {

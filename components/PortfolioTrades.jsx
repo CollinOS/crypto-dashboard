@@ -79,6 +79,7 @@ const PortfolioTrades = () => {
   async function clearTrades() {
     try {
       const { error } = await supabase.from('trades').delete('*').eq('userId', user.id);
+      alert('Trades cleared')
       if (error) throw error;
     } catch (error) {
       console.log(error);
@@ -98,7 +99,7 @@ const PortfolioTrades = () => {
   // if (loading) { return (<Loading />); }
 
   return (
-    <div className="w-3/4 bg-gradient-to-br from-purple via-dark-hov to-purple rounded-lg p-[1px]">
+    <div className="w-11/12 sm:w-3/4 bg-gradient-to-br from-purple via-dark-hov to-purple rounded-lg p-[1px]">
       <div className="bg-dark rounded-lg p-8">
         <div className='flex justify-between'>
           <div className='flex-col'>
@@ -108,7 +109,7 @@ const PortfolioTrades = () => {
           <div className='flex-col text-right'>
             <p className='text-lg text-secondary'>Total Trades</p>
             <div className='flex justify-end items-center'>
-              <BsTrash className='text-md text-secondary mr-4' onClick={clearTrades} />
+              <BsTrash className='text-md text-secondary mr-4 duration-100 hover:text-purple' onClick={clearTrades} />
               <p className='text-xl'>{trades.length}</p>
             </div>
           </div>
@@ -118,11 +119,11 @@ const PortfolioTrades = () => {
         {/*       TRADE FORM       */}
 
         <div className='2xl:flex 2xl:justify-between flex justify-center flex-wrap'>
-          <div className="flex-col lg:px-10 2xl:px-0 pb-10 2xl:pr-10 2xl:pb-0">
+          <div className="flex-col px-10 lg:px-10 2xl:px-0 pb-10 2xl:pr-10 2xl:pb-0">
             <div>
               <label htmlFor="coinName"></label>
               <input 
-                className='w-96'
+                className='w-[250px] sm:w-96'
                 type="text" 
                 id="coinName" 
                 value={coinName}
@@ -134,7 +135,7 @@ const PortfolioTrades = () => {
             <div>
               <label htmlFor="coinPrice"></label>
               <input 
-                className='w-96'
+                className='w-[250px] sm:w-96'
                 type="number" 
                 id="coinPrice" 
                 value={coinPrice}
@@ -146,7 +147,7 @@ const PortfolioTrades = () => {
             <div>
               <label htmlFor="coinAmount"></label>
               <input 
-                className='w-96'
+                className='w-[250px] sm:w-96'
                 type="number" 
                 id="coinAmount" 
                 value={coinAmount}
@@ -174,6 +175,7 @@ const PortfolioTrades = () => {
             </div>
             <div className='p-1'/>
             <button
+              className='w-[250px]'
               onClick={() => addTrade()}
               disabled={loading}
             >
@@ -182,23 +184,24 @@ const PortfolioTrades = () => {
 
             {formError && <p className='text-red'>{formError}</p>}
           </div>
-          <div className='flex-col w-92'>
-            <div className="grid grid-cols-4 gap-4 px-1 py-1 border-dark-border">
+          <div className='flex-col w-[250px] sm:w-[340px]'>
+            <div className="items-center grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-4 px-1 py-1 border-dark-border">
               <p className="text-sm text-left">Coin Name</p>
               <p className="text-sm text-right"># of Coins</p>
               <p className="text-sm text-right">Price</p>
-              <p className='text-sm text-right'>Buy/ Sell</p>
+              <p className='text-sm text-right hidden sm:table-cell'>Buy/ Sell</p>
             </div>
-            {trades.length == 0 ? <p className="text-sm text-center pt-16 border-t border-dark-border">Recent Trades</p> : 
+            {trades.length == 0 ? <p className="text-sm text-center pt-16 pb-16 border-t border-dark-border">Recent Trades</p> : 
             trades
             .slice(0, 8)
             .map((trade) => (
               <div key={trade.id} trade={trade} className=''>
-                <div className="grid grid-cols-4 gap-4 px-1 py-1 border-t border-dark-border">
+                <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-4 px-1 py-1 border-t border-dark-border">
                   <p className="text-sm text-left">{trade.coin}</p>
                   <p className="text-sm text-right">{trade.amount_of_coins}</p>
-                  <p className="text-sm text-right">${trade.coin_price_usd.toLocaleString()}</p>
-                  <p className='text-sm text-right'>{trade.buy == true ? 'Buy' : 'Sell'}</p>
+                  <p className={trade.buy == true ? "text-sm text-green text-right sm:hidden" : "text-sm text-red text-right sm:hidden"}>${trade.coin_price_usd.toLocaleString()}</p>
+                  <p className="text-sm text-primary text-right hidden sm:table-cell">${trade.coin_price_usd.toLocaleString()}</p>
+                  <p className='text-sm text-right hidden sm:table-cell'>{trade.buy == true ? 'Buy' : 'Sell'}</p>
                 </div> 
               </div>
             ))}
