@@ -26,11 +26,11 @@ export default function AddFavorites({ coin }) {
           if (error) throw error;
           if (data != null) {
             setFavorites(data);
-            window.localStorage.setItem('MY_FAVORITE_COINS', JSON.stringify(data))
+            window.localStorage.setItem('MY_FAVORITE_COINS', JSON.stringify(data));
           }
         }
       } catch (error) {
-        console.log(error)
+        console.log(error);
       } finally {
         setLoading(false);
       }

@@ -15,7 +15,7 @@ export default function Account({ session }) {
     try {
       setLoading(true);
 
-      let { data, error, status } = await supabase
+      const { data, error, status } = await supabase
         .from('profiles')
         .select('username')
         .eq('id', user.id)
@@ -58,21 +58,27 @@ export default function Account({ session }) {
   return (
     <div className="form-widget">
       <div>
-        <label className="text-sm" htmlFor="email">Email:</label><br/>
-        <input className="w-[250px] sm:w-96" id="email" type="text" value={session.user.email} disabled />
+        <label className="text-sm" htmlFor="email">
+          Email:
+          <br />
+          <input className="w-[250px] sm:w-96" id="email" type="text" value={session.user.email} disabled />
+        </label>
       </div>
-      <div className='p-1'/>
+      <div className="p-1" />
       <div>
-        <label className="text-sm" htmlFor="username">Username:</label><br/>
-        <input
-          className='w-[250px] sm:w-96'
-          id="username"
-          type="text"
-          value={username || ''}
-          onChange={(e) => setUsername(e.target.value)}
-        />
+        <label className="text-sm" htmlFor="username">
+          Username:
+          <br />
+          <input
+            className="w-[250px] sm:w-96"
+            id="username"
+            type="text"
+            value={username || ''}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </label>
       </div>
-      <div className='p-1'/>
+      <div className="p-1" />
       <div>
         <button
           className="button primary block w-[250px]"
@@ -82,7 +88,7 @@ export default function Account({ session }) {
           {loading ? 'Loading ...' : 'Update'}
         </button>
       </div>
-      <div className='p-1'/>
+      <div className="p-1" />
       <div onClick={() => window.localStorage.clear()}>
         <button className="button block w-[250px]" onClick={() => supabase.auth.signOut()}>
           Sign Out

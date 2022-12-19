@@ -11,8 +11,12 @@ export default function Index() {
       <div className="page-center pt-14">
         {!user
           ? <p>Please sign in to view your portfolio</p>
-          : <><PortfolioTrades />
-            <PortfolioCoins /></>}
+          : (
+            <>
+              <PortfolioTrades />
+              <PortfolioCoins />
+            </>
+          )}
       </div>
     </main>
   );

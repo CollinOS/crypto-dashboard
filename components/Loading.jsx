@@ -1,10 +1,10 @@
-import React from 'react'
-import { AiOutlineLoading3Quarters } from 'react-icons/ai'
+import React from 'react';
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 
-const Loading = () => {
+function Loading() {
   return (
-    <AiOutlineLoading3Quarters className='animate-spin text-secondary text-lg'/>
-  )
+    <AiOutlineLoading3Quarters className="animate-spin text-secondary text-lg" />
+  );
 }
 
-export default Loading
+export default Loading;
