@@ -13,7 +13,6 @@ function Index() {
         {!session ? (
           <Auth
             supabaseClient={supabase}
-            className="text-secondary"
             // appearance={{ theme: ThemeSupa, className: 'sidebar-button' }}
             // theme="dark"
           />
