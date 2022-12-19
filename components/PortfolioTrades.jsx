@@ -75,6 +75,15 @@ const PortfolioTrades = () => {
     }
   }
 
+  async function clearTrades() {
+    try {
+      const { error } = await supabase.from('trades').delete('*').eq('userId', user.id);
+      if (error) throw error;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const handleBuy = () => {
     setSell(false)
     setBuy(true)
@@ -97,7 +106,7 @@ const PortfolioTrades = () => {
           </div>
           <div className='flex-col text-right'>
             <p className='text-lg text-secondary'>Total Trades</p>
-            <p className='text-xl'>{trades.length}</p>
+            <p onClick={clearTrades}>X</p><p className='text-xl'>{trades.length}</p>
           </div>
         </div>
         <div className='p-6' />
