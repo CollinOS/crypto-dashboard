@@ -59,13 +59,13 @@ export default function Account({ session }) {
     <div className="form-widget">
       <div>
         <label className="text-sm" htmlFor="email">Email:</label><br/>
-        <input className="w-96" id="email" type="text" value={session.user.email} disabled />
+        <input className="w-[250px] sm:w-96" id="email" type="text" value={session.user.email} disabled />
       </div>
       <div className='p-1'/>
       <div>
         <label className="text-sm" htmlFor="username">Username:</label><br/>
         <input
-          className='w-96'
+          className='w-[250px] sm:w-96'
           id="username"
           type="text"
           value={username || ''}
@@ -75,7 +75,7 @@ export default function Account({ session }) {
       <div className='p-1'/>
       <div>
         <button
-          className="button primary block"
+          className="button primary block w-[250px]"
           onClick={() => updateProfile({ username })}
           disabled={loading}
         >
@@ -84,7 +84,7 @@ export default function Account({ session }) {
       </div>
       <div className='p-1'/>
       <div onClick={() => window.localStorage.clear()}>
-        <button className="button block" onClick={() => supabase.auth.signOut()}>
+        <button className="button block w-[250px]" onClick={() => supabase.auth.signOut()}>
           Sign Out
         </button>
       </div>

@@ -7,7 +7,7 @@ export default function Coin({ coin }) {
   return (
     <main>
       <div className="page-center pt-14">
-        <div className="w-3/4 bg-gradient-to-br from-purple via-dark-hov to-purple rounded-lg p-[1px]">
+        <div className="w-11/12 lg:w-3/4 bg-gradient-to-br from-purple via-dark-hov to-purple rounded-lg p-[1px]">
           <div className="bg-dark rounded-lg p-8">
             <p className="w-fit bg-dark-hov text-sm p-2 rounded-lg">
               Rank #
@@ -50,7 +50,7 @@ export default function Coin({ coin }) {
             {/* <AddFavorites data={coin}/>  NEED TO FIND A WAY TO MAKE THIS WORK */}
             <div className="p-2" />
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex justify-between border-b border-dark-border text-sm">
                 <p className="text-secondary">Market Cap</p>
                 {coin.market_data?.market_cap ? (
@@ -86,15 +86,15 @@ export default function Coin({ coin }) {
 
             <div className="p-6" />
 
-            <div className="grid grid-cols-6 grid-rows-2 gap-4 text-center">
-              <p className="text-secondary text-md">1h</p>
+            <div className="grid grid-cols-3 sm:grid-cols-6 grid-rows-2 gap-4 text-center">
+              <p className="text-secondary text-md hidden sm:table-cell">1h</p>
               <p className="text-secondary text-md">24h</p>
               <p className="text-secondary text-md">7d</p>
-              <p className="text-secondary text-md">14d</p>
+              <p className="text-secondary text-md hidden sm:table-cell">14d</p>
               <p className="text-secondary text-md">30d</p>
-              <p className="text-secondary text-md">1y</p>
+              <p className="text-secondary text-md hidden sm:table-cell">1y</p>
               {coin.market_data?.price_change_percentage_1h_in_currency.usd ? (
-                <p className={coin.market_data.price_change_percentage_1h_in_currency.usd > 0 ? 'text-green text-sm' : 'text-red text-sm'}>
+                <p className={coin.market_data.price_change_percentage_1h_in_currency.usd > 0 ? 'text-green text-sm hidden sm:table-cell' : 'text-red text-sm hidden sm:table-cell'}>
                   {coin.market_data.price_change_percentage_1h_in_currency.usd.toFixed(1)}
                   %
                 </p>
@@ -112,7 +112,7 @@ export default function Coin({ coin }) {
                 </p>
               ) : 'N/A'}
               {coin.market_data?.price_change_percentage_14d_in_currency.usd ? (
-                <p className={coin.market_data.price_change_percentage_14d_in_currency.usd > 0 ? 'text-green text-sm' : 'text-red text-sm'}>
+                <p className={coin.market_data.price_change_percentage_14d_in_currency.usd > 0 ? 'text-green text-sm hidden sm:table-cell' : 'text-red text-sm hidden sm:table-cell'}>
                   {coin.market_data.price_change_percentage_14d_in_currency.usd.toFixed(1)}
                   %
                 </p>
@@ -124,7 +124,7 @@ export default function Coin({ coin }) {
                 </p>
               ) : 'N/A'}
               {coin.market_data?.price_change_percentage_1y_in_currency.usd ? (
-                <p className={coin.market_data.price_change_percentage_1y_in_currency.usd > 0 ? 'text-green text-sm' : 'text-red text-sm'}>
+                <p className={coin.market_data.price_change_percentage_1y_in_currency.usd > 0 ? 'text-green text-sm hidden sm:table-cell' : 'text-red text-sm hidden sm:table-cell'}>
                   {coin.market_data.price_change_percentage_1y_in_currency.usd.toFixed(1)}
                   %
                 </p>

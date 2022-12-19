@@ -22,12 +22,12 @@ function CoinList({ coins }) {
   };
 
   return (
-    <div className="page-center">
+    <div className="page-center px-5 sm:px-0">
       <div className="flex flex-row justify-between w-full 2xl:w-3/4">
         {/*    HEADER AND SEARCH    */}
         <h4 className="py-2 my-12">Cryptocurrency Prices by Market Cap</h4>
         <input
-          className="border border-dark-border bg-dark p-2 w-60 rounded-lg my-14 text-secondary text-sm duration-100 active:border-purple focus:outline-none "
+          className="border border-dark-border bg-dark p-2 h-[38px] w-60 rounded-lg my-14 text-secondary text-sm duration-100 active:border-purple focus:outline-none "
           onKeyPress={handleKeyPress}
           placeholder="Search"
         />
@@ -37,15 +37,15 @@ function CoinList({ coins }) {
         <thead>
           {/*    COLUMN LABELS    */}
           <tr>
-            <td className="border-b border-dark-border font-bold px-4 py-4 text-primary w-4" />
+            <td className="border-b border-dark-border font-bold px-4 sm:px-4 py-4 text-primary w-4" />
             { sort === 'asc'
-              ? <td className="border-b border-dark-border font-bold px-4 py-4 text-primary w-12 cursor-pointer" onClick={() => { setSort('desc'); isAscending(); }}>#</td>
-              : <td className="border-b border-dark-border font-bold px-4 py-4 text-primary w-12 cursor-pointer" onClick={() => { setSort('asc'); isAscending(); }}>#</td>}
-            <td className="border-b border-dark-border font-bold px-4 py-4 text-primary">Coin</td>
-            <td className="border-b border-dark-border font-bold px-4 py-4 text-primary w-32 text-right">Price (USD)</td>
-            <td className="border-b border-dark-border font-bold px-4 py-4 text-primary w-20 text-right">24h</td>
-            <td className="border-b hidden lg:table-cell border-dark-border font-bold px-4 py-4 text-primary w-40 text-right">24h Volume</td>
-            <td className="border-b border-dark-border font-bold px-4 py-4 text-primary text-right w-40">Market Cap</td>
+              ? <td className="border-b border-dark-border font-bold px-1 sm:px-4 py-4 text-primary w-8 sm:w-12 cursor-pointer" onClick={() => { setSort('desc'); isAscending(); }}>#</td>
+              : <td className="border-b border-dark-border font-bold px-1 sm:px-4 py-4 text-primary w-8 sm:w-12 cursor-pointer" onClick={() => { setSort('asc'); isAscending(); }}>#</td>}
+            <td className="border-b border-dark-border font-bold px-1 sm:px-4 py-4 text-primary">Coin</td>
+            <td className="border-b border-dark-border font-bold px-1 sm:px-4 py-4 text-primary w-32 text-right">Price (USD)</td>
+            <td className="border-b border-dark-border font-bold px-1 sm:px-4 py-4 text-primary w-20 text-right">24h</td>
+            <td className="border-b hidden lg:table-cell border-dark-border font-bold px-1 sm:px-4 py-4 text-primary w-40 text-right">24h Volume</td>
+            <td className="border-b hidden md:table-cell border-dark-border font-bold px-1 sm:px-4 py-4 text-primary text-right w-40">Market Cap</td>
           </tr>
         </thead>
         <tbody>
@@ -56,36 +56,36 @@ function CoinList({ coins }) {
               : coin.name.toUpperCase().includes(search)))
             .map((coin) => (
               <tr key={coin.market_cap_rank} className="rounded-lg duration-100 hover:bg-dark-hov">
-                <td className="border-b border-dark-border px-4 py-4 text-primary font-medium w-8">
+                <td className="border-b border-dark-border px-1 sm:px-4 py-4 text-primary font-medium w-8">
                   <AddFavorites coin={coin} />
                 </td>
-                <td className="border-b border-dark-border px-4 py-4 text-primary font-medium w-20">{coin.market_cap_rank}</td>
-                <td className="border-b border-dark-border px-4 py-4">
+                <td className="border-b border-dark-border sm:px-4 py-4 text-primary font-medium w-20">{coin.market_cap_rank}</td>
+                <td className="border-b border-dark-border sm:pl-4 py-4">
                   <Link href={`/coins/${coin.id}`}>
                     <div className="flex">
-                      <div className="flex-col">
-                        <Image src={coin.image} width={20} height={20} alt="coin logo" className="rounded-full" />
+                      <div className="flex-col self-center">
+                        <Image src={coin.image} width={20} height={20} alt="coin logo" className="rounded-full hidden sm:table-cell" />
                       </div>
                       <div className="ml-3 flex-auto">
                         <span className="mr-3 text-primary font-bold">{coin.name}</span>
-                        <span className="text-secondary text-sm">{coin.symbol.toUpperCase()}</span>
+                        <span className="text-secondary text-sm flex lg:inline-flex">{coin.symbol.toUpperCase()}</span>
                       </div>
                     </div>
                   </Link>
                 </td>
-                <td className="border-b border-dark-border px-4 py-4 text-primary font-medium text-right">
+                <td className="border-b border-dark-border px-1 sm:px-4 py-4 text-primary font-medium text-right">
                   $
                   {coin.current_price.toLocaleString()}
                 </td>
-                <td className={coin.price_change_percentage_24h.toFixed(2) > 0 ? 'text-green border-b border-dark-border px-4 py-4 text-right' : 'text-red border-b border-dark-border px-4 py-4 text-right'}>
+                <td className={coin.price_change_percentage_24h.toFixed(2) > 0 ? 'text-green border-b border-dark-border px-1 sm:px-4 py-4 text-right' : 'text-red border-b border-dark-border px-1 sm:px-4 py-4 text-right'}>
                   {coin.price_change_percentage_24h.toFixed(1)}
                   %
                 </td>
-                <td className="border-b hidden lg:table-cell border-dark-border px-4 py-4 text-primary font-medium text-right">
+                <td className="border-b hidden lg:table-cell border-dark-border px-1 sm:px-4 py-4 text-primary font-medium text-right">
                   $
                   {coin.total_volume.toLocaleString()}
                 </td>
-                <td className="border-b border-dark-border px-4 py-4 text-primary font-medium text-right">
+                <td className="border-b hidden md:table-cell border-dark-border px-1 sm:px-4 py-4 text-primary font-medium text-right">
                   $
                   {coin.market_cap.toLocaleString()}
                 </td>

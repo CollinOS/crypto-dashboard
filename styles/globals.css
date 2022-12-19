@@ -31,7 +31,7 @@ STAR ORANGE: #FFA500
   }
 
   main {
-    @apply sm:p-10 md:p-20 xl:ml-80 xl:p-10
+    @apply pt-20 sm:px-10 md:p-20 xl:ml-80 xl:p-10
   }
 
   h1, h2, h3, h4 {
@@ -51,7 +51,7 @@ STAR ORANGE: #FFA500
   }
 
   h4 {
-    @apply text-xl sm:text-2xl
+    @apply text-xl lg:text-2xl
   }
   button {
     @apply border-none m-1 p-3 sm:w-96 rounded-lg bg-purple hover:bg-purple-hov active:bg-logo-purple duration-100 !important

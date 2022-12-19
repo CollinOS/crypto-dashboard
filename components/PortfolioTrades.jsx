@@ -109,7 +109,7 @@ const PortfolioTrades = () => {
           <div className='flex-col text-right'>
             <p className='text-lg text-secondary'>Total Trades</p>
             <div className='flex justify-end items-center'>
-              <BsTrash className='text-md text-secondary mr-4 duration-100 hover:text-purple' onClick={clearTrades} />
+              <BsTrash className='text-md text-secondary mr-4 duration-100 hover:text-purple cursor-pointer' onClick={clearTrades} />
               <p className='text-xl'>{trades.length}</p>
             </div>
           </div>
@@ -157,7 +157,7 @@ const PortfolioTrades = () => {
             </div>
             <div className='p-1'/>
             <div className='pl-1'>
-              <input className='accent-purple'
+              <input className='accent-purple cursor-pointer'
                 type="radio" 
                 id="buy" 
                 value="buy" 
@@ -165,7 +165,7 @@ const PortfolioTrades = () => {
                 onChange={handleBuy} />
               <label htmlFor="buy">Buy</label>
               <div className='p-1'/>
-              <input className='accent-purple'
+              <input className='accent-purple cursor-pointer'
                 type="radio" 
                 id="sell"
                 value="sell" 
@@ -184,7 +184,7 @@ const PortfolioTrades = () => {
 
             {formError && <p className='text-red'>{formError}</p>}
           </div>
-          <div className='flex-col w-[250px] sm:w-[340px]'>
+          <div className='flex-col w-[250px] sm:w-[340px] pb-16 2xl:pb-0'>
             <div className="items-center grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-4 px-1 py-1 border-dark-border">
               <p className="text-sm text-left">Coin Name</p>
               <p className="text-sm text-right"># of Coins</p>
