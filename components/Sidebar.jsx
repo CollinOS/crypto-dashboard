@@ -38,12 +38,12 @@ function Sidebar() {
           </h5>
         </ActiveLink>
         <div className="p-1" />
-        <ActiveLink href="/nft">
+        <div className='sidebar-element text-secondary duration-100'>
           <h5 className="flex items-center">
             <span className="text-secondary"><FaImage className="mr-3" /></span>
-            NFT
+            NFT (soon)
           </h5>
-        </ActiveLink>
+        </div>
 
         <div className="sidebar-button-container">
           <Link href="/account">
