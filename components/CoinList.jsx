@@ -23,11 +23,11 @@ function CoinList({ coins }) {
 
   return (
     <div className="page-center px-5 sm:px-0">
-      <div className="flex flex-row justify-between w-full 2xl:w-3/4">
+      <div className="flex flex-col md:flex-row items-center text-center md:justify-between w-full 2xl:w-3/4">
         {/*    HEADER AND SEARCH    */}
-        <h4 className="py-2 my-12">Cryptocurrency Prices by Market Cap</h4>
+        <h4 className=" pt-8 md:pt-0 md:py-2 md:my-12">Cryptocurrency Prices by Market Cap</h4>
         <input
-          className="border border-dark-border bg-dark p-2 h-[38px] w-60 rounded-lg my-14 text-secondary text-sm duration-100 active:border-purple focus:outline-none "
+          className="border border-dark-border bg-dark p-2 h-[38px] w-60 rounded-lg my-6 md:my-14 text-secondary text-sm duration-100 active:border-purple focus:outline-none "
           onKeyPress={handleKeyPress}
           placeholder="Search"
         />
