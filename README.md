@@ -1,10 +1,10 @@
-## Where my head is at (update at end of each session?)
+## Where my head is at (update at end of each session)
 
 Next steps are:
-- when a coin is clicked in the portfolio it pulls up a card with all trades for that coin
+- when a favorite coin is clicked in the portfolio, have it pull up a card with all trades for that coin
 - 404 error page
 - Track portfolio balance based off trade, sells go into a wallet state and take from that for buys if exists, so if I sell 100 then 100 goes into the wallet state and still contributes to portfolio amount, then next buy will take from that wallet state until empty
-- custom loading states for each thing that needs to load could be cool? kind of tedious though for a side thing
+- custom loading states for each thing that needs to load could be cool? kind of tedious though for a side project though
 - fix favorite.image from coin.id pages (low priority)
 - redirect search to coin page (low priority)
 - if someone favorites a coin from a different device will localStorage update or will db & localStorage be out of sync?
