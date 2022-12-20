@@ -42,7 +42,7 @@ export default function PortfolioCoins() {
   if (loading) { return (<Loading />); }
 
   return (
-    <div className="flex flex-row flex-wrap w-4/5 items-center justify-center pt-8">
+    <div className="flex flex-row flex-wrap w-4/5 min-[2000px]:w-7/12 min-[2500px]:w-6/12 items-center justify-center pt-8">
       {favorites
         .map((favorite) => (
           <div key={favorite.id} favorite={favorite} className="rounded-lg p-[1px] m-2 duration-100 cursor-pointer hover:bg-purple">

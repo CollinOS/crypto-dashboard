@@ -99,7 +99,7 @@ function PortfolioTrades() {
   // if (loading) { return (<Loading />); }
 
   return (
-    <div className="w-11/12 sm:w-3/4 bg-gradient-to-br from-purple via-dark-hov to-purple rounded-lg p-[1px]">
+    <div className="w-11/12 sm:w-3/4 min-[2000px]:w-7/12 min-[2500px]:w-6/12 bg-gradient-to-br from-purple via-dark-hov to-purple rounded-lg p-[1px]">
       <div className="bg-dark rounded-lg p-8">
         <div className="flex justify-between">
           <div className="flex-col">
