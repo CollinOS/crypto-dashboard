@@ -11,11 +11,18 @@ function Index() {
     <main>
       <div className="page-center h-[90vh]">
         {!session ? (
-          <Auth
-            supabaseClient={supabase}
-            // appearance={{ theme: ThemeSupa, className: 'sidebar-button' }}
-            // theme="dark"
-          />
+          <>
+            <Auth
+              supabaseClient={supabase}
+              // appearance={{ theme: ThemeSupa, className: 'sidebar-button' }}
+              // theme="dark"
+            />
+            <p className='pt-8 text-center'>
+            <span className='font-semibold'>Testing account for people who just want to check out the site. </span><br/>
+            Email: <span className='text-purple'>testingcointrack@gmail.com</span><br/>
+            Password: <span className='text-purple'>password</span>
+            </p>
+          </>
         ) : (
           <Account session={session} />
         )}
